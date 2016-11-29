@@ -1,0 +1,9 @@
+{
+  "name": "kununu-starter",
+  "version": "1.0.0",
+  "description": "Starter project for new kununu projects",
+  "main": "index.js",
+  "repository": "kununu/javascript",
+  "author": "Karl Horky <karl.horky@gmail.com> (https://work.karlhorky.com)",
+  "license": "MIT"
+}
