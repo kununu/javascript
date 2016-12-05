@@ -1,0 +1,25 @@
+{
+  "name": "@kununu/demo",
+  "version": "1.0.0",
+  "description": "Demo for kununu projects",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "repository": "kununu/javascript",
+  "author": "Karl Horky <karl.horky@gmail.com> (https://work.karlhorky.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@karlhorky/react-scripts": "0.7.0-rc.6"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
