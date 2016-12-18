@@ -1,3 +1,29 @@
+# kununu Frontend Architecture Demo
+
+This demo is a showcase of @kununu's frontend setup. It has been generated using [create-react-app (kununu fork)](https://github.com/kununu/create-react-app/), which provides encapsulated build tooling and configuration.
+
+What this demo showcases:
+
+- directory structure
+- component hierarchy
+- naming
+- code style
+- state management
+- Flow typing
+- integration of [kununu/nukleus](https://github.com/kununu/nukleus), kununu's React ui library
+- usage of other client-side libraries
+
+What this demo does not showcase:
+
+- build configuration
+- linting configuration
+- development or production server configuration
+- any other tooling configuration
+
+Dependencies and configuration for tooling are centralized in [create-react-app (kununu fork)](https://github.com/kununu/create-react-app/).
+
+## Old readme generated from `create-react-app`
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -882,7 +908,7 @@ This feature is experimental and still [has major usage issues](https://github.c
 
 ## Developing Components in Isolation
 
-Usually, in an app, you have a lot of UI components, and each of them has many different states. 
+Usually, in an app, you have a lot of UI components, and each of them has many different states.
 For an example, a simple button component could have following states:
 
 * With a text label.
