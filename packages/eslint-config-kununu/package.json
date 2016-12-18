@@ -1,0 +1,23 @@
+{
+  "name": "eslint-config-kununu",
+  "version": "1.0.0",
+  "description": "kununu's ESLint config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "kununu/javascript",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "kununu",
+    "javascript"
+  ],
+  "author": "Karl Horky <karl.horky@gmail.com> (https://work.karlhorky.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kununu/javascript/issues"
+  },
+  "homepage": "https://github.com/kununu/javascript#readme"
+}
