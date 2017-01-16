@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/kununu/javascript#readme",
   "dependencies": {
-    "eslint-config-karlhorky": "1.1.1"
+    "eslint-config-karlhorky": "2.0.0"
   },
   "peerDependencies": {
     "babel-eslint": "^7.0.0",
@@ -30,7 +30,6 @@
     "eslint-plugin-flowtype": "^2.29.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.7.1",
-    "eslint-plugin-sorting": "^0.3.0"
+    "eslint-plugin-react": "^6.7.1"
   }
 }
