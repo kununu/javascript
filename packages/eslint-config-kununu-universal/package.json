@@ -1,0 +1,36 @@
+{
+  "name": "eslint-config-kununu-universal",
+  "version": "1.0.0",
+  "description": "kununu's Universal ESLint config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "kununu/javascript",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "kununu",
+    "javascript",
+    "universal"
+  ],
+  "author": "Karl Horky <karl.horky@gmail.com> (https://work.karlhorky.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kununu/javascript/issues"
+  },
+  "homepage": "https://github.com/kununu/javascript#readme",
+  "dependencies": {
+    "eslint-config-karlhorky": "2.0.0"
+  },
+  "peerDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.11.1",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1"
+  }
+}
