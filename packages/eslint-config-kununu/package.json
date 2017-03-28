@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-kununu",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "kununu's ESLint config",
   "main": "index.js",
   "scripts": {
