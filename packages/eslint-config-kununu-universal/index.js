@@ -9,8 +9,17 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'import/no-extraneous-dependencies': ["error", {
+      "devDependencies": [
+          "**/*.test.js",
+          "**/*.spec.js",
+          "**/*.pact.js",
+          "**/test-*/*.js",
+      ],
+    }],
     'max-len': 'off', // Sometimes longer lines are more readable (Airbnb rule change)
     'no-prototype-builtins': 'off', // Objects aren't created that don't extend from Object.prototype (Airbnb rule change)
+    'no-param-reassign': ["error", {"props": false}],
     'object-curly-spacing': 'off', // Disabled in favor of babel/object-curly-spacing in order to avoid false positives with ECMAScript modules (Airbnb rule change)
     'space-before-function-paren': ['error', {
       anonymous: 'always', // const foo = function () {}
