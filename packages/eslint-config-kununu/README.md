@@ -9,7 +9,7 @@ This contains ESLint rules for ECMAScript 6+, React and Flow. It requires `eslin
 1. Add these npm packages as dev dependencies to your project:
   ```sh
   (
-    export PKG=eslint-config-kununu;
+    export PKG=@kununu/eslint-config;
     npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
   )
   ```
@@ -17,7 +17,7 @@ This contains ESLint rules for ECMAScript 6+, React and Flow. It requires `eslin
   Which produces and runs a command like:
 
   ```sh
-  npm install --save-dev eslint-config-kununu eslint@^#.#.# eslint-plugin-babel@^#.#.# eslint-plugin-flowtype@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-react@^#.#.#
+  npm install --save-dev @kununu/eslint-config eslint@^#.#.# eslint-plugin-babel@^#.#.# eslint-plugin-flowtype@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-react@^#.#.#
   ```
 
 2. Add `"extends": "@kununu"` to your .eslintrc
