@@ -6,7 +6,7 @@
 
 This contains ESLint rules for ECMAScript 6+, React and Flow. It requires `eslint`, `eslint-plugin-babel`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, and `eslint-plugin-react`.
 
-1. Ensure packages are installed with correct version numbers by running:
+1. Add these npm packages as dev dependencies to your project:
   ```sh
   (
     export PKG=eslint-config-kununu;
@@ -20,4 +20,4 @@ This contains ESLint rules for ECMAScript 6+, React and Flow. It requires `eslin
   npm install --save-dev eslint-config-kununu eslint@^#.#.# eslint-plugin-babel@^#.#.# eslint-plugin-flowtype@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-react@^#.#.#
   ```
 
-2. Add `"extends": "kununu"` to your .eslintrc
+2. Add `"extends": "@kununu"` to your .eslintrc
