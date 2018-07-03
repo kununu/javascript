@@ -1,6 +1,6 @@
 {
   "name": "@kununu/eslint-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "kununu's ESLint config",
   "main": "index.js",
   "scripts": {
@@ -21,15 +21,15 @@
   },
   "homepage": "https://github.com/kununu/javascript#readme",
   "dependencies": {
-    "eslint-config-airbnb": "16.1.0"
+    "eslint-config-airbnb": "17.0.0"
   },
   "peerDependencies": {
-    "babel-eslint": "8.2.3",
-    "eslint": "4.19.1",
+    "babel-eslint": "8.2.5",
+    "eslint": "5.0.1",
     "eslint-plugin-babel": "5.1.0",
-    "eslint-plugin-import": "2.3.0",
-    "eslint-plugin-flowtype": "2.46.3",
-    "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "7.7.0"
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-flowtype": "2.49.3",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.10.0"
   }
 }

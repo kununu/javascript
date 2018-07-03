@@ -50,5 +50,15 @@ module.exports = {
         'index', // import main from './';
       ],
     }],
+
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md#rule-details
+    // allow `Link` to have `to` and not the mandatory `href`
+    'jsx-a11y/anchor-is-valid': [ 'error', {
+      'components': [ 'Link' ],
+      'specialLink': [ 'to']
+    }],
+
+    // https://eslint.org/docs/rules/object-curly-newline
+    'object-curly-newline': ['error', { 'multiline': true }],
   },
 };
