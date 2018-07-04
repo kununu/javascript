@@ -13,16 +13,16 @@ module.exports = {
   },
 
   rules: {
-    'import/no-extraneous-dependencies': ["error", {
-      "devDependencies": [
-          "**/*.test.js",
-          "**/*.spec.js",
-          "**/*.pact.js",
-          "**/test-*/*.js",
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: [
+        '**/*.test.js',
+        '**/*.spec.js',
+        '**/*.pact.js',
+        '*/test-*/*.js',
       ],
     }],
     'max-len': 'off', // Sometimes longer lines are more readable (Airbnb rule change)
-    'no-param-reassign': ["error", {"props": false}],
+    'no-param-reassign': ['error', {props: false}],
     'no-prototype-builtins': 'off', // Objects aren't created that don't extend from Object.prototype (Airbnb rule change)
     'object-curly-spacing': 'off', // Disabled in favor of babel/object-curly-spacing in order to avoid false positives with ECMAScript modules (Airbnb rule change)
     'space-before-function-paren': ['error', {
@@ -53,12 +53,15 @@ module.exports = {
 
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md#rule-details
     // allow `Link` to have `to` and not the mandatory `href`
-    'jsx-a11y/anchor-is-valid': [ 'error', {
-      'components': [ 'Link' ],
-      'specialLink': [ 'to']
+    'jsx-a11y/anchor-is-valid': ['error', {
+      components: ['Link'],
+      specialLink: ['to'],
     }],
 
     // https://eslint.org/docs/rules/object-curly-newline
-    'object-curly-newline': ['error', { 'multiline': true }],
+    'object-curly-newline': ['error', {multiline: true}],
+
+    // https://eslint.org/docs/rules/operator-linebreak
+    'operator-linebreak': ['error', 'after'],
   },
 };
