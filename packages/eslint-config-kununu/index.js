@@ -58,10 +58,18 @@ module.exports = {
       specialLink: ['to'],
     }],
 
-    // https://eslint.org/docs/rules/object-curly-newline
-    'object-curly-newline': ['error', {multiline: true}],
-
     // https://eslint.org/docs/rules/operator-linebreak
     'operator-linebreak': ['error', 'after'],
+
+    // https://eslint.org/docs/rules/no-confusing-arrow
+    // turn off to prevent conflict with 
+    // https://eslint.org/docs/rules/arrow-body-style
+    'no-confusing-arrow': 'off',
+
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
+    // 'label' tags need 'htmlFor' prop, but nesting is not required
+    'jsx-a11y/label-has-for': [ 2, {
+      'required': 'id',
+    }],
   },
 };
