@@ -84,4 +84,11 @@ module.exports = {
     // jsx props should be on separate lines each
     'react/jsx-max-props-per-line': ['error', {'maximum': 1}]
   },
+
+  overrides: [{
+    files: ['*.spec.js', '*.test.js', '*.pact.js'],
+    rules: {
+      'global-require': 'off'
+    }
+  }]
 };

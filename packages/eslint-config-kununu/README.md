@@ -12,7 +12,7 @@ This contains ESLint rules for ECMAScript 6+ and React. It requires `eslint`, `b
   ```
   Alternatively you can install the peer dependencies manually like this:
   ```
-  npm install --save-dev @kununu/eslint-config babel-eslint@10.0.1 eslint@5.10.0 eslint-plugin-babel@5.3.0 eslint-plugin-import@2.14.0 eslint-plugin-jsx-a11y@6.1.2 eslint-plugin-react@7.11.1 eslint-import-resolver-alias@1.1.2
+  npm install --save-dev @kununu/eslint-config babel-eslint@10.0.1 eslint@5.15.1 eslint-plugin-babel@5.3.0 eslint-plugin-import@2.16.0 eslint-plugin-jsx-a11y@6.2.1 eslint-plugin-react@7.12.4 eslint-import-resolver-alias@1.1.2
   ```
 
 2. Add `"extends": "@kununu"` to your .eslintrc
