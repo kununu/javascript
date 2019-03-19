@@ -16,9 +16,12 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
         '**/*.test.js',
+        '**/*.test.jsx',
         '**/*.spec.js',
+        '**/*.spec.jsx',
         '**/*.pact.js',
         '*/test-*/*.js',
+        '*/test-*/*.jsx',
       ],
     }],
     'max-len': 'off', // Sometimes longer lines are more readable (Airbnb rule change)
@@ -62,22 +65,22 @@ module.exports = {
     'operator-linebreak': ['error', 'after'],
 
     // https://eslint.org/docs/rules/no-confusing-arrow
-    // turn off to prevent conflict with 
+    // turn off to prevent conflict with
     // https://eslint.org/docs/rules/arrow-body-style
     'no-confusing-arrow': 'off',
 
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
     // 'label' tags need 'htmlFor' prop, but nesting is not required
-    'jsx-a11y/label-has-for': [ 'error', {
+    'jsx-a11y/label-has-for': ['error', {
       'required': 'id',
     }],
 
     // https://eslint.org/docs/rules/padding-line-between-statements
     // enforce empty lines after variable declarations
     'padding-line-between-statements': ['error', {
-      'blankLine': 'always', 'prev': ['const', 'let', 'var'], 'next': '*'
+      'blankLine': 'always', 'prev': ['const', 'let', 'var'], 'next': '*',
     }, {
-      'blankLine': 'any', 'prev': ['const', 'let', 'var'], 'next': ['const', 'let', 'var']
+      'blankLine': 'any', 'prev': ['const', 'let', 'var'], 'next': ['const', 'let', 'var'],
     }],
 
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
@@ -88,7 +91,7 @@ module.exports = {
   overrides: [{
     files: ['*.spec.js', '*.test.js', '*.pact.js'],
     rules: {
-      'global-require': 'off'
+      'global-require': 'off',
     }
   }]
 };
