@@ -36,7 +36,6 @@ module.exports = {
 
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/no-direct-mutation-state': 'error', // Use .setState() always (Airbnb rule change)
-    'react/jsx-filename-extension': 'off', // Don't require .jsx file extension for files with JSX in them (Airbnb rule change)
 
     // https://github.com/babel/eslint-plugin-babel#rules
     'babel/object-curly-spacing': 'error', // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
@@ -85,13 +84,48 @@ module.exports = {
 
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
     // jsx props should be on separate lines each
-    'react/jsx-max-props-per-line': ['error', {'maximum': 1}]
+    'react/jsx-max-props-per-line': ['error', {'maximum': 1}],
+
+    // https://eslint.org/docs/rules/no-underscore-dangle
+    // no underscores at either the beginning or end of an identifier
+    'no-underscore-dangle': ['error', {'allow': ['__NEXT_DATA__', '__NEXT_REDUX_STORE__']}],
+
+    // https://eslint.org/docs/rules/eol-last
+    // require newline at the end of files
+    'eol-last': ['error', 'always'],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-default-props.md
+    // enforce defaultProps declarations alphabetical sorting
+    'react/jsx-sort-default-props': ['error', {
+      'ignoreCase': true
+    }],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
+    // enforce props alphabetical sorting
+    'react/jsx-sort-props': ['error', {
+      'ignoreCase': true
+    }],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
+    // enforce propTypes declarations alphabetical sorting
+    'react/sort-prop-types': ['error', {
+      'ignoreCase': true
+    }],
+
+    // https://eslint.org/docs/rules/sort-keys
+    // require object keys to be sorted
+    'sort-keys': ['error', 'asc', {'caseSensitive': false, 'natural': false}],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
+    // enforces where React component static properties should be positioned
+    'react/static-property-placement': ['error', 'property assignment'],
   },
 
   overrides: [{
-    files: ['*.spec.js', '*.test.js', '*.pact.js'],
+    files: ['*.spec.js', '*.test.js', '*.pact.js', '*spec.jsx'],
     rules: {
       'global-require': 'off',
+      'jsx-a11y/anchor-is-valid': 'off',
     }
   }]
 };
