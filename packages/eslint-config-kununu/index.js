@@ -5,6 +5,7 @@ module.exports = {
 
   plugins: [
     'babel',
+    'react-hooks',
   ],
 
   env: {
@@ -85,6 +86,11 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
     // jsx props should be on separate lines each
     'react/jsx-max-props-per-line': ['error', {'maximum': 1}],
+
+    // https://www.npmjs.com/package/eslint-plugin-react-hooks
+    // enforces the rules of react-hooks (call at top level and only from functional components; checks dependencies)
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
 
     // https://eslint.org/docs/rules/no-underscore-dangle
     // no underscores at either the beginning or end of an identifier
