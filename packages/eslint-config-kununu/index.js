@@ -54,6 +54,10 @@ module.exports = {
       ],
     }],
 
+    'import/no-useless-path-segments': ['error', {
+      'noUselessIndex': true,
+    }],
+
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md#rule-details
     // allow `Link` to have `to` and not the mandatory `href`
     'jsx-a11y/anchor-is-valid': ['error', {
