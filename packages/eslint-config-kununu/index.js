@@ -100,6 +100,8 @@ module.exports = {
     // no underscores at either the beginning or end of an identifier
     'no-underscore-dangle': ['error', {'allow': ['__NEXT_DATA__', '__NEXT_REDUX_STORE__']}],
 
+    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+
     // https://eslint.org/docs/rules/eol-last
     // require newline at the end of files
     'eol-last': ['error', 'always'],
