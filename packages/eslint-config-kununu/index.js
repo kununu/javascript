@@ -131,6 +131,21 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
     // enforces where React component static properties should be positioned
     'react/static-property-placement': ['error', 'property assignment'],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+    // enforces that there is no spreading for any JSX attribute
+    'react/jsx-props-no-spreading': 'off',
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+    // enforce the state initialization style to be either in a constructor or with a class property
+    'react/state-in-constructor': 'off',
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'ignore' }],
+
+    // https://eslint.org/docs/rules/max-classes-per-file
+    // enforces that each file may contain only a particular number of classes and no more
+    'max-classes-per-file': 'off',
   },
 
   overrides: [{
