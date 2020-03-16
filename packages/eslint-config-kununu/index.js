@@ -1,18 +1,14 @@
 module.exports = {
-  extends: 'airbnb', // Many strict rules for ECMAScript and React
-
+  extends: 'airbnb', 
   parser: 'babel-eslint',
-
   plugins: [
     'babel',
     'react-hooks',
   ],
-
   env: {
     browser: true,
     jest: true,
   },
-
   rules: {
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
