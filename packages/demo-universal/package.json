@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@kununu/react-universal-scripts": "0.8.3-alpha.9"
+    "@kununu/react-universal-scripts": "0.8.3-experimental.3"
   },
   "dependencies": {
     "react": "^15.4.1",
