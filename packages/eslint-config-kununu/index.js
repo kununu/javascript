@@ -1,10 +1,10 @@
 module.exports = {
   extends: 'airbnb', // Many strict rules for ECMAScript and React
 
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
 
   plugins: [
-    'babel',
+    '@babel',
     'react-hooks',
   ],
 
@@ -131,6 +131,12 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
     // enforces where React component static properties should be positioned
     'react/static-property-placement': ['error', 'property assignment'],
+
+    // https://eslint.org/docs/rules/indent
+    // enforces a consistent 2 spaces indentation style
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+    }]
   },
 
   overrides: [{
