@@ -28,7 +28,7 @@ module.exports = {
     'max-len': 'off', // Sometimes longer lines are more readable (Airbnb rule change)
     'no-param-reassign': ['error', {props: false}],
     'no-prototype-builtins': 'off', // Objects aren't created that don't extend from Object.prototype (Airbnb rule change)
-    'object-curly-spacing': 'off', // Disabled in favor of babel/object-curly-spacing in order to avoid false positives with ECMAScript modules (Airbnb rule change)
+    'object-curly-spacing': 'off', // Disabled in favor of @babel/object-curly-spacing in order to avoid false positives with ECMAScript modules (Airbnb rule change)
     'space-before-function-paren': ['error', {
       anonymous: 'always', // const foo = function () {}
       named: 'always', // function foo () {} (Airbnb rule change)
@@ -38,8 +38,8 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/no-direct-mutation-state': 'error', // Use .setState() always (Airbnb rule change)
 
-    // https://github.com/babel/eslint-plugin-babel#rules
-    'babel/object-curly-spacing': 'error', // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
+    // https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin#rules
+    "@babel/object-curly-spacing": "error", // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
 
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/
     'import/order': ['error', { // Make import sort order an error (Airbnb rule change)
