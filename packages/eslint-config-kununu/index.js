@@ -144,6 +144,7 @@ module.exports = {
     rules: {
       'global-require': 'off',
       'jsx-a11y/anchor-is-valid': 'off',
+      'react/jsx-props-no-spreading': 'off'
     }
   }]
 };
