@@ -39,7 +39,7 @@ module.exports = {
     'react/no-direct-mutation-state': 'error', // Use .setState() always (Airbnb rule change)
 
     // https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin#rules
-    "@babel/object-curly-spacing": "error", // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
+    '@babel/object-curly-spacing': 'error', // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
 
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/
     'import/order': ['error', { // Make import sort order an error (Airbnb rule change)
@@ -134,8 +134,8 @@ module.exports = {
 
     // https://eslint.org/docs/rules/indent
     // enforces a consistent 2 spaces indentation style
-    "indent": ["error", 2, {
-      "SwitchCase": 1
+    'indent': ['error', 2, {
+      'SwitchCase': 1
     }],
 
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
