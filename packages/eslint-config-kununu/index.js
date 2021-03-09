@@ -144,7 +144,14 @@ module.exports = {
 
     // https://eslint.org/docs/rules/arrow-parens
     // enforces no braces where they can be omitted
-    'arrow-parens': ['error', 'as-needed']
+    'arrow-parens': ['error', 'as-needed'],
+
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
+    'import/extensions': ['error', 'ignorePackages', {
+      'js': 'never',
+      'jsx': 'never',
+      'scss': 'ignorePackages'
+    }],
   },
 
   overrides: [{
