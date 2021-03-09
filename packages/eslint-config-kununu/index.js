@@ -136,7 +136,11 @@ module.exports = {
     // enforces a consistent 2 spaces indentation style
     "indent": ["error", 2, {
       "SwitchCase": 1
-    }]
+    }],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+    // enforce the state initialization style to be either in a constructor or with a class property
+    'react/state-in-constructor': 'off',
   },
 
   overrides: [{
