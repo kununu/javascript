@@ -139,8 +139,12 @@ module.exports = {
     }],
 
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
-    // enforce the state initialization style to be either in a constructor or with a class property
+    // enforces the state initialization style to be either in a constructor or with a class property
     'react/state-in-constructor': 'off',
+
+    // https://eslint.org/docs/rules/arrow-parens
+    // enforces no braces where they can be omitted
+    'arrow-parens': ['error', 'as-needed']
   },
 
   overrides: [{
