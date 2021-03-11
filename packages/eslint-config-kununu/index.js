@@ -152,6 +152,13 @@ module.exports = {
       'jsx': 'never',
       'scss': 'ignorePackages'
     }],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+    // disallow spread on html tags directly but allows it on React components
+    'react/jsx-props-no-spreading': ['error', {
+      'html': 'enforce',
+      'custom': 'ignore',
+    }]
   },
 
   overrides: [{
@@ -159,7 +166,6 @@ module.exports = {
     rules: {
       'global-require': 'off',
       'jsx-a11y/anchor-is-valid': 'off',
-      'react/jsx-props-no-spreading': 'off'
     }
   }]
 };
