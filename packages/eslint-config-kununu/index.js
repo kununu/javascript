@@ -1,10 +1,10 @@
 module.exports = {
   extends: 'airbnb', // Many strict rules for ECMAScript and React
 
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
 
   plugins: [
-    'babel',
+    '@babel',
     'react-hooks',
   ],
 
@@ -28,7 +28,7 @@ module.exports = {
     'max-len': 'off', // Sometimes longer lines are more readable (Airbnb rule change)
     'no-param-reassign': ['error', {props: false}],
     'no-prototype-builtins': 'off', // Objects aren't created that don't extend from Object.prototype (Airbnb rule change)
-    'object-curly-spacing': 'off', // Disabled in favor of babel/object-curly-spacing in order to avoid false positives with ECMAScript modules (Airbnb rule change)
+    'object-curly-spacing': 'off', // Disabled in favor of @babel/object-curly-spacing in order to avoid false positives with ECMAScript modules (Airbnb rule change)
     'space-before-function-paren': ['error', {
       anonymous: 'always', // const foo = function () {}
       named: 'always', // function foo () {} (Airbnb rule change)
@@ -38,8 +38,8 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/no-direct-mutation-state': 'error', // Use .setState() always (Airbnb rule change)
 
-    // https://github.com/babel/eslint-plugin-babel#rules
-    'babel/object-curly-spacing': 'error', // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
+    // https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin#rules
+    '@babel/object-curly-spacing': 'error', // No spaces in single-line objects to make nested objects like {a: {b: 'c'}} look more sane (Airbnb rule change)
 
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/
     'import/order': ['error', { // Make import sort order an error (Airbnb rule change)
@@ -131,6 +131,34 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
     // enforces where React component static properties should be positioned
     'react/static-property-placement': ['error', 'property assignment'],
+
+    // https://eslint.org/docs/rules/indent
+    // enforces a consistent 2 spaces indentation style
+    'indent': ['error', 2, {
+      'SwitchCase': 1
+    }],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+    // enforces the state initialization style to be either in a constructor or with a class property
+    'react/state-in-constructor': 'off',
+
+    // https://eslint.org/docs/rules/arrow-parens
+    // enforces no braces where they can be omitted
+    'arrow-parens': ['error', 'as-needed'],
+
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
+    'import/extensions': ['error', 'ignorePackages', {
+      'js': 'never',
+      'jsx': 'never',
+      'scss': 'ignorePackages'
+    }],
+
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+    // disallow spread on html tags directly but allows it on React components
+    'react/jsx-props-no-spreading': ['error', {
+      'html': 'enforce',
+      'custom': 'ignore',
+    }]
   },
 
   overrides: [{
