@@ -1,12 +1,12 @@
-const express = require("express");
+import express from "express";
 
-const next = require("next");
+import next from "next";
 
-const getMiddlewares = require("./middlewares");
+import getMiddlewares from "./middlewares";
 
-const isAliveHandler = require("./handlers/isAliveHandler");
+import isAliveHandler from "./handlers/isAliveHandler";
 
-const staticResourceHandler = require("./handlers/staticResourceHandler");
+import staticResourceHandler from "./handlers/staticResourceHandler";
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });

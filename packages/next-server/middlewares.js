@@ -1,11 +1,9 @@
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const compression = require("compression");
-const helmet = require("helmet");
-const checkReferrer =
-  require("@kununu/kununu-utils/dist/middlewares/checkReferrer").default;
-const expressLogger =
-  require("@kununu/kununu-utils/dist/middlewares/expressLogger").default;
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import compression from "compression";
+import helmet from "helmet";
+import checkReferrer from "@kununu/kununu-utils/dist/middlewares/checkReferrer";
+import expressLogger from "@kununu/kununu-utils/dist/middlewares/expressLogger";
 
 const getMiddlewares = (application) => [
   helmet({

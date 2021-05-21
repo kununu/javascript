@@ -1,11 +1,12 @@
 {
   "name": "@kununu/next-server",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.9",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel . --out-dir ./dist --ignore '**/*.spec.js','node_modules','**/__mocks__'"
+    "build": "babel . --out-dir ./dist --ignore '**/*.spec.js','node_modules','**/__mocks__'",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@kununu/kununu-utils": "1.25.1",
