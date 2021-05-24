@@ -4,11 +4,11 @@
 dist_folder="dist"
 
 rm -rf $dist_folder
-babel . --out-dir $dist_folder
-cp -r . $dist_folder/_temp
+babel src --out-dir $dist_folder --ignore 'src/**/*.spec.jsx'
+cp -r src $dist_folder
 
 
-rm -rf $dist_folder/_temp
+rm -rf $dist_folder/src
 
 if [ $# -eq 0 ]
 then

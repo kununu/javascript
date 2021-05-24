@@ -1,13 +1,19 @@
 {
   "name": "@kununu/next-server",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel . --out-dir ./dist --ignore '**/*.spec.js','node_modules','**/__mocks__'",
-    "prepublish": "npm run build"
+    "build": "./build.sh",
+    "prepublish": "npm run build",
+    "postpublish": "git clean -fd"
   },
+  "files": [
+    "index.js",
+    "middlewares.js",
+    "handlers/*"
+  ],
   "dependencies": {
     "@kununu/kununu-utils": "1.25.1",
     "body-parser": "^1.19.0",
