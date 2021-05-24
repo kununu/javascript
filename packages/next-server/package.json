@@ -9,11 +9,6 @@
     "prepublish": "npm run build",
     "postpublish": "git clean -fd"
   },
-  "files": [
-    "index.js",
-    "middlewares.js",
-    "handlers/*"
-  ],
   "dependencies": {
     "@kununu/kununu-utils": "1.25.1",
     "body-parser": "^1.19.0",

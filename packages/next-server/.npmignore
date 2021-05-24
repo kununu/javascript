@@ -1,0 +1,14 @@
+#tests
+test
+coverage
+jest.*
+
+#code
+src/
+
+#build
+.babelrc
+dist
+webpack.config.js
+clean.sh
+build.sh
