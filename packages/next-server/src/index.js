@@ -36,4 +36,4 @@ const nextServer = (config) => {
   return { server, app };
 };
 
-module.exports = nextServer;
+export default nextServer;
