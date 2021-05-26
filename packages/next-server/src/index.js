@@ -26,7 +26,6 @@ const nextServer = (config) => {
   // Set cache header for static resources - it can be long, since bundles should contain unique id
   if (process.env.NODE_ENV === "production") {
     // Found here: https://github.com/zeit/next.js/issues/4105
-    // /^\/app-sitemaps\/_next\/static\/(images|css)\//,
     server.get(/^\/_next\/static\/(images|css)\//, staticResourceHandler);
   }
 
