@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./build.sh",
     "prepublish": "npm run build",
-    "postpublish": "git clean -fd"
+    "postpublish": "./clean.sh"
   },
   "dependencies": {
     "@kununu/kununu-utils": "1.25.3",
