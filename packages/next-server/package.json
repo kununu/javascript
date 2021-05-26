@@ -1,6 +1,6 @@
 {
   "name": "@kununu/next-server",
-  "version": "1.0.0-beta.13",
+  "version": "1.0.0-beta.14",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "postpublish": "git clean -fd"
   },
   "dependencies": {
-    "@kununu/kununu-utils": "1.25.1",
+    "@kununu/kununu-utils": "1.25.3",
     "body-parser": "1.19.0",
     "compression": "1.7.4",
     "config": "3.3.6",
