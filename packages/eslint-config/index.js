@@ -15,7 +15,7 @@ module.exports = {
 
   settings: {
     'import/resolver': {
-      node: { paths: process.env.NODE_PATH.split(":") } // If ENV['NODE_PATH'] was provided we want to use it with eslint too
+      node: { paths: (process.env.NODE_PATH || "").split(":").filter(String) } // If ENV['NODE_PATH'] was provided we want to use it with eslint too
     }
   },
 
