@@ -13,6 +13,12 @@ module.exports = {
     jest: true,
   },
 
+  settings: {
+    'import/resolver': {
+      node: { paths: (process.env.NODE_PATH || "").split(":").filter(String) } // If ENV['NODE_PATH'] was provided we want to use it with eslint too
+    }
+  },
+
   rules: {
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
