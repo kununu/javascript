@@ -1,0 +1,9 @@
+{
+  "extends": "@kununu/eslint-config",
+  "env": {
+    "jest": true
+  },
+  "parserOptions": {
+    "requireConfigFile": false
+  }
+}
