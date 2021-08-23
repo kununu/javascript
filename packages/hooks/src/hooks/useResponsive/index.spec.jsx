@@ -6,7 +6,7 @@ import useResponsive from '.';
 const TestComponent = () => {
   const {isDesktop, isMobile, isTablet} = useResponsive();
 
-  const title = isDesktop && 'Desktop' || isTablet && 'Tablet' || isMobile && 'Mobile' || '';
+  const title = (isDesktop && 'Desktop') || (isTablet && 'Tablet') || (isMobile && 'Mobile') || '';
 
   return <h1>{title}</h1>;
 };
