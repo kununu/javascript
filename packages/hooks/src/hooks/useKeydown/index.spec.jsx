@@ -19,6 +19,8 @@ describe('hooks/useKeydown', () => {
 
     const heading = getByRole('heading', {level: 1});
 
+    fireEvent.keyDown(heading, {code: 'Escape', key: 'Escape'});
+
     expect(heading.textContent).toBe('B');
   });
 

@@ -1,6 +1,13 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
+const coverageThreshold = {
+  branches: 80,
+  functions: 80,
+  lines: 80,
+  statements: 80,
+};
+
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -18,7 +25,7 @@ module.exports = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['./src/**/*.jsx', '!./src/index.jsx', '!./src/**/stories.jsx'],
+  collectCoverageFrom: ['./src/**/*.jsx', '!./src/index.jsx'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: './coverage',
@@ -39,17 +46,11 @@ module.exports = {
     'clover',
   ],
 
-  // moduleNameMapper: {
-  //   '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
-  //   '^atoms(.*)$': '<rootDir>/src/atoms/$1',
-  //   '^molecules(.*)$': '<rootDir>/src/molecules/$1',
-  //   '^organisms(.*)$': '<rootDir>/src/organisms/$1',
-  //   '^particles(.*)$': '<rootDir>/src/particles/$1',
-  //   '^utils(.*)$': '<rootDir>/src/utils/$1',
-  // },
-
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: coverageThreshold,
+    'src/**/*.jsx': coverageThreshold,
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
