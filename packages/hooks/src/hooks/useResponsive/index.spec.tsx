@@ -4,16 +4,26 @@ import React from 'react';
 import useResponsive from '.';
 
 const TestComponent = () => {
-  const {isDesktop, isMobile, isTablet} = useResponsive();
+  const {isDesktop, isMobile, isTablet} = useResponsive(
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0',
+  );
 
-  const title = (isDesktop && 'Desktop') || (isTablet && 'Tablet') || (isMobile && 'Mobile') || '';
+  const title =
+    (isDesktop && 'Desktop') ||
+    (isTablet && 'Tablet') ||
+    (isMobile && 'Mobile') ||
+    '';
 
   return <h1>{title}</h1>;
 };
 
 describe('hooks/useResponsive', () => {
   it('should print Mobile if window width is 767px', () => {
-    window.innerWidth = 767;
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 767,
+      writable: true,
+    });
 
     const {getByRole} = render(<TestComponent />);
 
@@ -23,7 +33,11 @@ describe('hooks/useResponsive', () => {
   });
 
   it('should print Tablet if window width is 768px', () => {
-    window.innerWidth = 768;
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 768,
+      writable: true,
+    });
 
     const {getByRole} = render(<TestComponent />);
 
@@ -33,7 +47,11 @@ describe('hooks/useResponsive', () => {
   });
 
   it('should print Tablet if window width is 1023px', () => {
-    window.innerWidth = 1023;
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1023,
+      writable: true,
+    });
 
     const {getByRole} = render(<TestComponent />);
 
@@ -43,7 +61,11 @@ describe('hooks/useResponsive', () => {
   });
 
   it('should print Desktop if window width is 1024px', () => {
-    window.innerWidth = 1024;
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1024,
+      writable: true,
+    });
 
     const {getByRole} = render(<TestComponent />);
 

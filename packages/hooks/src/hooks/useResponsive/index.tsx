@@ -7,7 +7,13 @@ import {
 import mobile from 'is-mobile';
 import throttle from 'lodash/throttle';
 
-const useResponsive = ua => {
+type ReturnDataProps = {
+  isDesktop: boolean,
+  isMobile: boolean,
+  isTablet: boolean
+}
+
+const useResponsive = (ua: string): ReturnDataProps => {
   const onlyMobile = mobile({
     ua,
   });
