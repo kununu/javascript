@@ -1,0 +1,38 @@
+{
+  "name": "@kununu/hooks",
+  "author": "kununu",
+  "license": "ISC",
+  "version": "1.0.0",
+  "description": "Hosts react hooks to be used cross application.",
+  "main": "dist/",
+  "scripts": {
+    "build": "../../scripts/build.sh",
+    "clean": "../../scripts/clean.sh",
+    "lint": "eslint ./src",
+    "prepack": "npm run test && npm run build",
+    "postpack": "npm run clean",
+    "test": "npm run lint && npm run test:jest",
+    "test:jest": "NODE_ENV=test jest"
+  },
+  "dependencies": {
+    "is-mobile": "3.0.0",
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.14.3",
+    "@babel/core": "7.14.3",
+    "@babel/preset-env": "7.14.2",
+    "@babel/preset-react": "7.12.13",
+    "@kununu/eslint-config": "2.0.0",
+    "@testing-library/jest-dom": "5.11.9",
+    "@testing-library/react": "11.2.5",
+    "jest": "26.6.3",
+    "jsdom": "16.5.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
+  }
+}
