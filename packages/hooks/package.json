@@ -1,5 +1,6 @@
 {
   "name": "@kununu/hooks",
+  "author": "kununu",
   "license": "ISC",
   "version": "1.0.0",
   "description": "Hosts react hooks to be used cross application.",
@@ -8,8 +9,8 @@
     "build": "../../scripts/build.sh",
     "clean": "../../scripts/clean.sh",
     "lint": "eslint ./src",
-    "prepublishOnly": "npm run test && npm run build",
-    "postpublish": "npm run clean",
+    "prepack": "npm run test && npm run build",
+    "postpack": "npm run clean",
     "test": "npm run lint && npm run test:jest",
     "test:jest": "NODE_ENV=test jest"
   },
