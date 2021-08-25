@@ -1,4 +1,5 @@
 
 import getUrl from './utils/getUrl';
 
-export default getUrl;
+// eslint-disable-next-line import/prefer-default-export
+export {getUrl};
