@@ -25,7 +25,7 @@ module.exports = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['./src/**/*.jsx', '!./src/index.jsx'],
+  collectCoverageFrom: ['./src/**/*.tsx', '!./src/index.tsx'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: './coverage',
@@ -49,7 +49,7 @@ module.exports = {
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold: {
     global: coverageThreshold,
-    'src/**/*.jsx': coverageThreshold,
+    'src/**/*.tsx': coverageThreshold,
   },
 
   // A path to a custom dependency extractor
