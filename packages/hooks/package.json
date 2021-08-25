@@ -6,7 +6,7 @@
   "description": "Hosts react hooks to be used cross application.",
   "main": "dist/",
   "scripts": {
-    "build": "babel --extensions \".ts,.tsx\" src --out-dir dist --ignore 'src/**/*.spec.tsx'",
+    "build": "../../scripts/build.sh",
     "clean": "../../scripts/clean.sh",
     "lint": "eslint ./src",
     "beta": "npm publish --tag beta",
