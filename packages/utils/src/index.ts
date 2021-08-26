@@ -1,5 +1,5 @@
 
 import getUrl from './utils/getUrl';
+import httpHeaderFilter from './utils/httpHeaderFilter';
 
-// eslint-disable-next-line import/prefer-default-export
-export {getUrl};
+export {getUrl, httpHeaderFilter};
