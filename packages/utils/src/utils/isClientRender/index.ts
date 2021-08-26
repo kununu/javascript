@@ -1,3 +1,3 @@
-const isClientRender = () => typeof window !== 'undefined';
+const isClientRender = (): boolean => typeof window !== 'undefined';
 
 export default isClientRender;
