@@ -32,7 +32,10 @@ const useResponsive = ua => {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
+
     return () => {
+      handleResize.cancel();
+
       window.removeEventListener('resize', handleResize);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
