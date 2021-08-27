@@ -1,6 +1,7 @@
 
 import getUrl from './utils/getUrl';
 import httpHeaderFilter from './utils/httpHeaderFilter';
+import buildHTTPHeaders from './utils/buildHTTPHeaders';
 import {
   getCountriesByLocale,
   getCountryByLocale,
@@ -9,10 +10,11 @@ import {
 } from './utils/countries';
 
 export {
+  buildHTTPHeaders,
   getCountriesByLocale,
   getCountryByLocale,
-  isDach,
-  isUSLocale,
   getUrl,
   httpHeaderFilter,
+  isDach,
+  isUSLocale,
 };
