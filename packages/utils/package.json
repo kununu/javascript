@@ -2,11 +2,11 @@
   "name": "@kununu/utils",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Hosts react utils to be used cross application.",
   "main": "dist/",
   "scripts": {
-    "build": "../../scripts/build.sh",
+    "build": "babel --extensions '.ts,.tsx' src --out-dir dist --ignore 'src/**/*.spec.ts'",
     "clean": "../../scripts/clean.sh",
     "lint": "eslint ./src",
     "beta": "npm publish --tag beta",

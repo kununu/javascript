@@ -2,7 +2,7 @@
   "name": "@kununu/hooks",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Hosts react hooks to be used cross application.",
   "main": "dist/",
   "scripts": {

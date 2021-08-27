@@ -4,4 +4,4 @@
 dist_folder="dist"
 
 rm -rf $dist_folder
-babel --extensions '.ts,.tsx' src --out-dir $dist_folder --ignore 'src/**/*.spec.ts'
+babel src --out-dir $dist_folder --ignore 'src/**/*.spec.jsx'
