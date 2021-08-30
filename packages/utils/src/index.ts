@@ -1,9 +1,9 @@
-
 import getUrl from './utils/getUrl';
 import httpHeaderFilter from './utils/httpHeaderFilter';
 import isClientRender from './utils/isClientRender';
 import buildHTTPHeaders from './utils/buildHTTPHeaders';
 import setApiHeaders from './utils/setApiHeaders';
+import fetchApiDomain, {getBFFURL} from './utils/fetchApiDomain';
 import {
   getCountriesByLocale,
   getCountryByLocale,
@@ -13,6 +13,8 @@ import {
 
 export {
   buildHTTPHeaders,
+  fetchApiDomain,
+  getBFFURL,
   getCountriesByLocale,
   getCountryByLocale,
   getUrl,
