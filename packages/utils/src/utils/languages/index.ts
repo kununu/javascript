@@ -9,10 +9,6 @@ type ReqProp = {
   headers: Record<string, string>,
 };
 
-type ResProp = {
-
-}
-
 const languages = {
   de: {
     countries: ['at', 'ch', 'de'],
@@ -27,7 +23,7 @@ const supportedLanguageCodes = Object.keys(languages);
 const defaultLocale = languages.de.default;
 
 // https://github.com/opentable/accept-language-parser
-const parseAcceptLanguage = al => al.replace(/ /g, '').split(',').map(m => {
+const parseAcceptLanguage = (al: string) => al.replace(/ /g, '').split(',').map(m => {
   const bits = m.split(';');
   const ietf = bits[0].split('-');
   const hasScript = ietf.length === 3;
@@ -60,7 +56,7 @@ const getLocaleByUrl = originalUrl => {
   return defaultLocale;
 };
 
-const setLanguageObj = (locale: string, req: ReqProp, res?: any) => {
+const setLanguageObj = (locale: string, req: ReqProp, res?: any): Record<string, string> => {
   const {'x-lang': xLangQuery} = req.query;
 
   if (res) setCookieLanguage(locale, res);
@@ -117,7 +113,7 @@ export const getLanguage = (req: ReqProp, res: unknown): unknown => {
     setLanguageObj(localeInURL, req, res);
 };
 // eslint-disable-next-line
-export const serverSideGetTranslations = (locale, page) => require(join(__dirname, `../../client/translations/${page}-${locale}.json`));
+export const serverSideGetTranslations = (locale: string, page: string): Promise<Record<string, string>> => require(join(__dirname, `../../client/translations/${page}-${locale}.json`));
 
 // I had to switch here to normal string concat because jests watch mode was constantly complaining about not finding dynamic async imports …
-export const clientSideGetTranslations = (locale, page) => import(/* webpackChunkName: '[request]' */ 'client/translations/' + page + '-' + locale + '.json'); // eslint-disable-line prefer-template
+export const clientSideGetTranslations = (locale: string, page: string): Promise<Record<string, string>> => import(/* webpackChunkName: '[request]' */ 'client/translations/' + page + '-' + locale + '.json'); // eslint-disable-line prefer-template
