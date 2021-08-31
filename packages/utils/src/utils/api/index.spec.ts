@@ -25,144 +25,134 @@ jest.spyOn(kununuSessionCallback, 'default').mockImplementation(() => ({
   default: jest.fn(),
 }));
 
-describe('Utils', () => {
-  describe('api', () => {
-    beforeEach(() => {
-      process.env.BFF_URL = 'http://someurl.com';
+describe('api', () => {
+  it('returns the result of a fetch if successful', async () => {
+    const endpoint = '/success';
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
+    const body = {message: 'success'};
+
+    fetchMock.once(url, {
+      body,
     });
 
-    afterAll(() => {
-      delete process.env.BFF_URL;
+    const result = await fetchApi(endpoint)();
+
+    expect(result).toEqual(body);
+  });
+
+  it('calls kununuSession before a request', async () => {
+    const endpoint = '/success-session';
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
+    const body = {message: 'success'};
+
+    fetchMock.once(url, {
+      body,
     });
 
-    it('returns the result of a fetch if successful', async () => {
-      const endpoint = '/success';
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
-      const body = {message: 'success'};
+    await fetchApi(endpoint)();
 
-      fetchMock.once(url, {
-        body,
-      });
+    expect(kununuSessionCallback.default).toHaveBeenCalled();
+  });
 
-      const result = await fetchApi(endpoint)();
+  it('throws an error for status codes it cannot handle', async () => {
+    const endpoint = '/failure';
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
+    const status = 503;
+    const body = {message: 'failure'};
 
-      expect(result).toEqual(body);
+    fetchMock.once(url, {
+      body,
+      ok: false,
+      status,
     });
 
-    it('calls kununuSession before a request', async () => {
-      const endpoint = '/success-session';
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
-      const body = {message: 'success'};
-
-      fetchMock.once(url, {
-        body,
-      });
-
+    try {
       await fetchApi(endpoint)();
+    } catch (err) {
+      expect(err.status).toEqual(status);
+      expect(JSON.parse(err.response.body)).toEqual(body);
+    }
+  });
 
-      expect(kununuSessionCallback.default).toHaveBeenCalled();
+  it('returns request time out if request takes too long', async () => {
+    const endpoint = '/timeout';
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
+
+    fetchMock.once(url, () => new Promise(resolve => {
+      setTimeout(() => {
+        resolve('');
+      }, 200);
+    }));
+
+    try {
+      await fetchApi(endpoint, {}, {}, 100)();
+    } catch (err) {
+      expect(err.status).toEqual(504);
+    }
+  });
+
+  it('handles query params correctly', async () => {
+    const endpoint = '/queryparams';
+    const body = {message: 'some param was set'};
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}?someparam=set`;
+
+    fetchMock.once(url, {
+      body,
     });
 
-    it('throws an error for status codes it cannot handle', async () => {
-      const endpoint = '/failure';
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
-      const status = 503;
-      const body = {message: 'failure'};
+    const result = await fetchApi(endpoint, {someparam: 'set'})();
 
-      fetchMock.once(url, {
-        body,
-        ok: false,
-        status,
-      });
+    expect(result).toEqual(body);
+  });
 
-      try {
-        await fetchApi(endpoint)();
-      } catch (err) {
-        expect(err.status).toEqual(status);
-        expect(JSON.parse(err.response.body)).toEqual(body);
-      }
+  it('calls logger info beacause window is undefined', async () => {
+    delete global.window;
+    const endpoint = '/queryparams';
+    const body = {message: 'some param was set'};
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}?someparam=sete`;
+
+    fetchMock.once(url, {
+      body,
     });
 
-    it('returns request time out if request takes too long', async () => {
-      const endpoint = '/timeout';
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
+    await fetchApi(endpoint, {someparam: 'sete'})();
 
-      fetchMock.once(url, () => new Promise(resolve => {
-        setTimeout(() => {
-          resolve('');
-        }, 200);
-      }));
+    expect(logger.info).toHaveBeenCalled();
+  });
 
-      try {
-        await fetchApi(endpoint, {}, {}, 100)();
-      } catch (err) {
-        expect(err.status).toEqual(504);
-      }
-    });
+  it('calls logger error when request takes too long and window is undefined', async () => {
+    delete global.window;
+    const endpoint = '/timeout1';
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
 
-    it('handles query params correctly', async () => {
-      const endpoint = '/queryparams';
-      const body = {message: 'some param was set'};
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}?someparam=set`;
+    fetchMock.once(url, () => new Promise(resolve => {
+      setTimeout(() => {
+        resolve('');
+      }, 200);
+    }));
 
-      fetchMock.once(url, {
-        body,
-      });
+    try {
+      await fetchApi(endpoint, {}, {}, 100)();
+    } catch (err) {
+      expect(err.status).toEqual(504);
+    }
+  });
 
-      const result = await fetchApi(endpoint, {someparam: 'set'})();
+  it('should call reject because 406 is not an ok status', async () => {
+    const endpoint = '/reject';
+    const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
+    const body = {message: 'ok'};
 
-      expect(result).toEqual(body);
-    });
+    fetchMock.once(url, {
+      body,
+    }, {response: {status: 406}});
 
-    it('calls logger info beacause window is undefined', async () => {
-      delete global.window;
-      const endpoint = '/queryparams';
-      const body = {message: 'some param was set'};
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}?someparam=sete`;
-
-      fetchMock.once(url, {
-        body,
-      });
-
-      await fetchApi(endpoint, {someparam: 'sete'})();
-
-      expect(logger.info).toHaveBeenCalled();
-    });
-
-    it('calls logger error when request takes too long and window is undefined', async () => {
-      delete global.window;
-      const endpoint = '/timeout1';
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
-
-      fetchMock.once(url, () => new Promise(resolve => {
-        setTimeout(() => {
-          resolve('');
-        }, 200);
-      }));
-
-      try {
-        await fetchApi(endpoint, {}, {}, 100)();
-      } catch (err) {
-        expect(err.status).toEqual(504);
-      }
-    });
-
-    it('should call reject because 406 is not an ok status', async () => {
-      const endpoint = '/reject';
-      const url = `${fetchApiDomain()}${getBFFURL(endpoint)}`;
-      const body = {message: 'ok'};
-
-      fetchMock.once(url, {
-        body,
-      }, {response: {status: 406}});
-
-      await expect(fetchApi(endpoint)).rejects.toEqual({
-        response: {
-          _abort: false, _fmResults: {}, _raw: [], body: undefined, bodyUsed: false, headers: {_headers: {}}, ok: false, size: 0, status: 406, statusText: 'Not Acceptable', timeout: 0, url: '/middlewares/reject',
-        },
-        status: 406,
-        statusText: 'Not Acceptable',
-      });
+    await expect(fetchApi(endpoint)).rejects.toEqual({
+      response: {
+        _abort: false, _fmResults: {}, _raw: [], body: undefined, bodyUsed: false, headers: {_headers: {}}, ok: false, size: 0, status: 406, statusText: 'Not Acceptable', timeout: 0, url: '/middlewares/reject',
+      },
+      status: 406,
+      statusText: 'Not Acceptable',
     });
   });
 });
