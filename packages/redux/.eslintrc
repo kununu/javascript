@@ -43,6 +43,10 @@
   "settings": {
     "import/resolver": {
       "alias": {
+        "map": [
+          ["actions", "./src/actions"],
+          ["reducers", "./src/reducers"]
+        ],
         "extensions": [".js", ".ts", ".tsx", ".jsx", ".json"]
       }
     }
