@@ -1,1 +1,1 @@
-process.env.BFF_URL = 'ambassador';
+process.env.BFF_URL = 'http://someurl.com';

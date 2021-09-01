@@ -1,8 +1,4 @@
-/* eslint-disable global-require */
-/* eslint-disable @typescript-eslint/no-var-requires */
-import {join} from 'path';
-
-import {serverSideGetTranslations, clientSideGetTranslations, getLanguage} from '.';
+import {getLanguage} from '.';
 
 const defaultReq = {
   cookies: {},
@@ -399,18 +395,5 @@ describe('Get languages', () => {
       getLanguage(req, res);
       expect(res.cookie).toHaveBeenCalled();
     });
-  });
-});
-
-describe('Get messages', () => {
-  it('gets the correct translations for each language in server side', () => {
-    /* eslint-disable import/no-dynamic-require */
-    expect(require(join(__dirname, '../../../__mocks__/translationMock-en_US.json'))).toEqual(serverSideGetTranslations('en_US', 'translationMock'));
-    expect(require(join(__dirname, '../../../__mocks__/translationMock-de_DE.json'))).toEqual(serverSideGetTranslations('de_DE', 'translationMock'));
-    /* eslint-enable import/no-dynamic-require */
-  });
-
-  it('gets the correct translations for each language in client side', () => {
-    expect(import('../../../__mocks__/translationMock-en_US.json')).toEqual(clientSideGetTranslations('en_US', 'translationMock'));
   });
 });
