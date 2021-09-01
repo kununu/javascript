@@ -1,12 +1,5 @@
 import getProfileLink from '.';
 
-jest.mock('next/config', () => () => ({
-  publicRuntimeConfig: {
-    publicFqdn: 'https://kununu.com',
-    server: {name: 'app-profiles'},
-  },
-}));
-
 describe('getProfileLink', () => {
   it('should return reviews link in DE language', () => {
     const result = getProfileLink({
@@ -46,12 +39,12 @@ describe('getProfileLink', () => {
 
   it('should include publicFqdn', () => {
     const result = getProfileLink({
-      includeFQN: true,
       link: 'AP_REVIEWS_LINK',
       params: {
         countryCode: 'us',
         slug: 'kununu',
       },
+      publicFqdn: 'https://kununu.com',
     });
 
     expect(result).toBe('https://kununu.com/us/kununu/reviews');
