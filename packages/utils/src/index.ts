@@ -4,6 +4,7 @@ import isClientRender from './utils/isClientRender';
 import buildHTTPHeaders from './utils/buildHTTPHeaders';
 import setApiHeaders from './utils/setApiHeaders';
 import getProfileLink from './utils/getProfileLink';
+import setCookieLanguage from './utils/setCookieLanguage';
 import fetchApi from './utils/api';
 import fetchApiDomain, {getBFFURL} from './utils/fetchApiDomain';
 import {
@@ -27,4 +28,5 @@ export {
   isDach,
   isUSLocale,
   setApiHeaders,
+  setCookieLanguage,
 };
