@@ -66,7 +66,6 @@ function handleRequest ({url, params}, timeout) {
   )
     .then(verifyHttpStatus)
     .then(response => response.json())
-    .then(json => json)
     .catch(error => Promise.reject(error));
 }
 
