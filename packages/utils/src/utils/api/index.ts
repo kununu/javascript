@@ -29,7 +29,7 @@ function verifyHttpStatus (response) {
   });
 }
 
-function fetchOrTimeout (params: [any, Record<string, unknown>], timeout) {
+function fetchOrTimeout (params: [string, Record<string, unknown>], timeout: number) {
   return new Promise((resolve, reject) => {
     setTimeout(
       () => reject({
@@ -74,7 +74,7 @@ export default function fetchApi (
   endpoint: string,
   query = {},
   params = {},
-  timeout = 10000,
+  timeout = 30000,
   isToCheckKununuSession = true,
 ) {
   return (): Promise<unknown> => {
