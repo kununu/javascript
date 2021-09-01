@@ -5,6 +5,7 @@ import buildHTTPHeaders from './utils/buildHTTPHeaders';
 import setApiHeaders from './utils/setApiHeaders';
 import getProfileLink from './utils/getProfileLink';
 import setCookieLanguage from './utils/setCookieLanguage';
+import isLoggedIn from './utils/isLoggedIn';
 import {
   clientSideGetTranslations,
   getLanguage,
@@ -33,6 +34,7 @@ export {
   httpHeaderFilter,
   isClientRender,
   isDach,
+  isLoggedIn,
   isUSLocale,
   serverSideGetTranslations,
   setApiHeaders,
