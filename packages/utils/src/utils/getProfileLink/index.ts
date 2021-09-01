@@ -1,8 +1,4 @@
-import getConfig from 'next/config';
-
 import {isDach} from '../countries';
-
-const {publicRuntimeConfig: {publicFqdn}} = getConfig();
 
 const baseLink = '/{countryCode}/{slug}';
 const links = {
@@ -57,17 +53,17 @@ const links = {
 };
 
 const getProfileLink = ({
-  includeFQN,
   link,
   params,
+  publicFqdn,
 }:{
-  includeFQN?: boolean;
   link: string;
   params: Record<string, string>;
+  publicFqdn?: string;
 }): string => {
   const {countryCode = 'de'} = params;
   const parsedCountry = isDach(countryCode) ? 'de' : countryCode;
-  const profileLink = `${includeFQN ? publicFqdn : ''}${links[parsedCountry][link]}`;
+  const profileLink = `${publicFqdn || ''}${links[parsedCountry][link]}`;
 
   // Replace custom params in each link
   return Object.keys(params).reduce((acc, param) => acc.replace(new RegExp(`{${param}}`, 'g'), params[param] || ''), profileLink);
