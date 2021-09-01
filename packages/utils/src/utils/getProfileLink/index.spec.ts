@@ -13,18 +13,6 @@ describe('getProfileLink', () => {
     expect(result).toBe('/de/kununu/kommentare');
   });
 
-  it('should return reviews link in DE language', () => {
-    const result = getProfileLink({
-      link: 'AP_REVIEWS_LINK',
-      params: {
-        countryCode: 'de',
-        slug: 'kununu',
-      },
-    });
-
-    expect(result).toBe('/de/kununu/kommentare');
-  });
-
   it('should return reviews link in EN language', () => {
     const result = getProfileLink({
       link: 'AP_REVIEWS_LINK',
