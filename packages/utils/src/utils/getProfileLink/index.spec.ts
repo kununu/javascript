@@ -51,15 +51,4 @@ describe('getProfileLink', () => {
     expect(result).toBe('/us/insights?forms=bewerten,gehalt,kultur');
   });
 
-  it('should handle if no pathname is passed', () => {
-    const result = getProfileLink({
-      link: 'AP_SUMMARY_LINK',
-      params: {
-        countryCode: 'us',
-        slug: 'kununu',
-      },
-    });
-
-    expect(result).toBe('/us/kununu');
-  });
 });
