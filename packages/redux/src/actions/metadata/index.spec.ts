@@ -1,10 +1,11 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import fetchApi from '@kununu/utils/dist';
+import {fetchApi} from '@kununu/utils/dist';
 
 import {receiveMeta, fetchMeta, RECEIVE_META} from '.';
 
-jest.mock('@kununu/utils/dist');
+jest.mock('@kununu/utils/dist', () => ({fetchApi: jest.fn()}));
+const application = 'application';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -22,7 +23,7 @@ describe('Metadata actions', () => {
   it('fetches meta successfully', () => {
     const store = mockStore({});
 
-    store.dispatch(fetchMeta('at'));
+    store.dispatch(fetchMeta(application, 'at'));
 
     const fetchCall = (fetchApi as any).mock.calls[0];
 

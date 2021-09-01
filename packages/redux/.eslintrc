@@ -44,8 +44,7 @@
     "import/resolver": {
       "alias": {
         "map": [
-          ["actions", "./src/actions"],
-          ["reducers", "./src/reducers"]
+          ["actions", "./src/actions"]
         ],
         "extensions": [".js", ".ts", ".tsx", ".jsx", ".json"]
       }

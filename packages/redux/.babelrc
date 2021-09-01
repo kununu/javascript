@@ -8,8 +8,7 @@
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-        "actions": "./actions",
-        "reducers": "./reducers"
+        "actions": "./src/actions"
       }
     }]
   ]

@@ -1,14 +1,7 @@
-import getConfig from 'next/config';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
-import fetchApi from '@kununu/utils/dist';
+import {fetchApi} from '@kununu/utils/dist';
 
 export const RECEIVE_META = 'RECEIVE_META';
-
-const {
-  publicRuntimeConfig: {
-    server: {name: application},
-  },
-} = getConfig();
 
 type ReturnDataProps = {
   payload: {data: Record<string, unknown>};
@@ -23,6 +16,7 @@ export function receiveMeta (data: Record<string, unknown>): ReturnDataProps {
 }
 
 export function fetchMeta (
+  application: string,
   countryCode: string,
   headers = {},
 ): (dispatch) => Promise<void> {

@@ -29,5 +29,8 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "paths": {
+    "actions/*": ["./src/actions/*"]
+  }
 }
