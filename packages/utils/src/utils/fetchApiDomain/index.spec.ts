@@ -5,7 +5,7 @@ describe('fetchApiDomain', () => {
 
   it('should return empty string because the window is undefined', () => {
     delete global.window;
-    expect(fetchApiDomain()).toBe('ambassador');
+    expect(fetchApiDomain()).toBe('http://someurl.com');
   });
 
   it('should return empty string because window is defined', () => {
