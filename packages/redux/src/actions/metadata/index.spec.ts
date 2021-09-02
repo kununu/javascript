@@ -1,16 +1,25 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {fetchApi} from '@kununu/utils/dist';
+import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
 
 import {receiveMeta, fetchMeta, RECEIVE_META} from '.';
 
-jest.mock('@kununu/utils/dist', () => ({fetchApi: jest.fn()}));
+jest.mock('@kununu/kununu-utils/dist/kununu-logger', () => ({
+  logger: {
+    error: jest.fn(),
+  },
+}));
 const application = 'application';
-
 const mockStore = configureMockStore([thunk]);
 
 describe('Metadata actions', () => {
-  it('Dispatches the receiveMeta action', () => {
+  beforeEach(() => {
+    (fetchApi as any).getCustomCallback().mockClear();
+    logger.error.mockClear();
+  });
+
+  it('Dispatches the receiveMeta action', async () => {
     const store = mockStore({});
 
     store.dispatch(receiveMeta({}));
@@ -20,14 +29,23 @@ describe('Metadata actions', () => {
     expect(actions[0].type).toBe(RECEIVE_META);
   });
 
-  it('fetches meta successfully', () => {
+  it('fetches meta', async () => {
     const store = mockStore({});
 
-    store.dispatch(fetchMeta(application, 'at'));
+    await store.dispatch(fetchMeta(application, 'at'));
 
-    const fetchCall = (fetchApi as any).mock.calls[0];
+    const fetchCall = (fetchApi as any).getCustomCallback().mock.calls[0];
 
-    expect(fetchApi.mock.calls.length).toBe(1);
+    expect((fetchApi as any).getCustomCallback().mock.calls.length).toBe(1);
     expect(fetchCall[0]).toBe('/meta');
+  });
+
+  it('should call logger', async () => {
+    const store = mockStore({});
+
+    (fetchApi as any).setCustomOutput(false, {});
+    await store.dispatch(fetchMeta(application, 'at'));
+
+    expect(logger.error).toHaveBeenCalled();
   });
 });
