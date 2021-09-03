@@ -7,11 +7,7 @@ import getProfileLink from './utils/getProfileLink';
 import setCookieLanguage from './utils/setCookieLanguage';
 import isLoggedIn from './utils/isLoggedIn';
 import getParsedCookie from './utils/getParsedCookie';
-import {
-  clientSideGetTranslations,
-  getLanguage,
-  serverSideGetTranslations,
-} from './utils/languages';
+import getLanguage from './utils/languages';
 import fetchApi from './utils/api';
 import fetchApiDomain, {getBFFURL} from './utils/fetchApiDomain';
 import {
@@ -23,7 +19,6 @@ import {
 
 export {
   buildHTTPHeaders,
-  clientSideGetTranslations,
   fetchApi,
   fetchApiDomain,
   getBFFURL,
@@ -38,7 +33,6 @@ export {
   isDach,
   isLoggedIn,
   isUSLocale,
-  serverSideGetTranslations,
   setApiHeaders,
   setCookieLanguage,
 };
