@@ -10,6 +10,7 @@ import getParsedCookie from './utils/getParsedCookie';
 import getLanguage from './utils/languages';
 import fetchApi from './utils/api';
 import fetchApiDomain, {getBFFURL} from './utils/fetchApiDomain';
+import parseUserCookie from './utils/parseUserCookie';
 import {
   getCountriesByLocale,
   getCountryByLocale,
@@ -33,6 +34,7 @@ export {
   isDach,
   isLoggedIn,
   isUSLocale,
+  parseUserCookie,
   setApiHeaders,
   setCookieLanguage,
 };
