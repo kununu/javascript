@@ -1,7 +1,6 @@
 import {
   useCallback,
   useEffect,
-  useLayoutEffect,
   useState,
 } from 'react';
 import mobile from 'is-mobile';
@@ -15,23 +14,26 @@ const useResponsive = ua => {
     tablet: true,
     ua,
   });
-  const [isMobile, setIsMobile] = useState(onlyMobile);
-  const [isTablet, setIsTablet] = useState(!onlyMobile && mobileOrTablet);
-  const [isDesktop, setIsDesktop] = useState(!mobileOrTablet);
+  const [responsive, setResponsive] = useState({
+    isDesktop: !mobileOrTablet,
+    isMobile: onlyMobile,
+    isTablet: !onlyMobile && mobileOrTablet,
+  });
   const handleResize = useCallback(throttle(() => { // eslint-disable-line react-hooks/exhaustive-deps
     const width = window.innerWidth;
 
-    setIsMobile(width < 768);
-    setIsTablet(width >= 768 && width < 1024);
-    setIsDesktop(width >= 1024);
+    setResponsive({
+      isDesktop: width >= 1024,
+      isMobile: width < 768,
+      isTablet: width >= 768 && width < 1024,
+    });
   }, 200), []);
-
-  useLayoutEffect(() => {
-    handleResize();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
 
     return () => {
       handleResize.cancel();
@@ -40,11 +42,7 @@ const useResponsive = ua => {
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return {
-    isDesktop,
-    isMobile,
-    isTablet,
-  };
+  return responsive;
 };
 
 export default useResponsive;
