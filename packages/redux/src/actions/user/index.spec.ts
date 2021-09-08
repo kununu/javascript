@@ -17,7 +17,7 @@ const mockStore = configureMockStore(middlewares);
 
 describe('User actions', () => {
   beforeEach(() => {
-    (fetchApi as any).getCustomCallback().mockClear();
+    fetchApi.getCustomCallback().mockClear();
   });
 
   it('dispatches the setUserInfo action', () => {
@@ -65,12 +65,12 @@ describe('User actions', () => {
     };
 
     store.dispatch(fetchUserInfo(mockUserId, headers));
-    const fetchCall = (fetchApi as any).getCustomCallback().mock.calls[0];
+    const fetchCall = fetchApi.getCustomCallback().mock.calls[0];
 
     const expectedUrl = `/users/${mockUserId}`;
     const expectedHeaders = {headers};
 
-    expect((fetchApi as any).getCustomCallback().mock.calls.length).toBe(1);
+    expect(fetchApi.getCustomCallback().mock.calls.length).toBe(1);
     expect(fetchCall[0]).toBe(expectedUrl);
     expect(fetchCall[2]).toEqual(expectedHeaders);
   });
@@ -84,7 +84,7 @@ describe('User actions', () => {
     const mockUserId = undefined;
     const mockCookie = undefined;
 
-    (fetchApi as any).setCustomOutput(false, expectedOutput);
+    fetchApi.setCustomOutput(false, expectedOutput);
 
     await store.dispatch(fetchUserInfo(mockUserId, mockCookie));
     const actions = store.getActions();

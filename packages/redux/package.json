@@ -2,7 +2,7 @@
   "name": "@kununu/redux",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "description": "Hosts react actions and reducers to be used cross application.",
   "main": "dist/",
   "scripts": {

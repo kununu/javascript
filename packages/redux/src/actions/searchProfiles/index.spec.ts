@@ -23,8 +23,8 @@ describe('#actions searchProfiles', () => {
   const mockStore = configureMockStore(middlewares);
 
   beforeEach(() => {
-    (fetchApi as any as any).getCustomCallback().mockClear();
-    (isClientRender as any).mockClear();
+    fetchApi.getCustomCallback().mockClear();
+    isClientRender.mockClear();
     logger.error.mockClear();
   });
 
@@ -34,9 +34,9 @@ describe('#actions searchProfiles', () => {
     store.dispatch(fetchSearchProfiles(application, {country: 'at', q: 'ku'}));
 
     const actions = store.getActions();
-    const fetchCall = (fetchApi as any).getCustomCallback().mock.calls[0];
+    const fetchCall = fetchApi.getCustomCallback().mock.calls[0];
 
-    expect((fetchApi as any).getCustomCallback().mock.calls.length).toBe(1);
+    expect(fetchApi.getCustomCallback().mock.calls.length).toBe(1);
 
     expect(fetchCall[0]).toBe('/search/profiles');
     expect(fetchCall[1]).toEqual({country: 'at', q: 'ku'});
@@ -57,7 +57,7 @@ describe('#actions searchProfiles', () => {
       },
     ];
 
-    (fetchApi as any).setCustomOutput(true, expectedOutput);
+    fetchApi.setCustomOutput(true, expectedOutput);
     await store.dispatch(fetchSearchProfiles(application, {country: 'at', q: 'ku'}));
     const actions = store.getActions();
 
@@ -73,7 +73,7 @@ describe('#actions searchProfiles', () => {
       message: 'error',
     };
 
-    (fetchApi as any).setCustomOutput(false, expectedOutput);
+    fetchApi.setCustomOutput(false, expectedOutput);
     await store.dispatch(fetchSearchProfiles(application, {country: 'at', q: 'ku'}));
     const actions = store.getActions();
 
@@ -84,20 +84,20 @@ describe('#actions searchProfiles', () => {
   });
 
   it('should not call logger because it is a client render', async () => {
-    (isClientRender as any).mockImplementation(() => true);
+    isClientRender.mockImplementation(() => true);
     const store = mockStore({});
 
-    (fetchApi as any).setCustomOutput(false, {});
+    fetchApi.setCustomOutput(false, {});
     await store.dispatch(fetchSearchProfiles(application, {country: 'at', q: 'ku'}));
 
     expect(logger.error).not.toHaveBeenCalled();
   });
 
   it('should call logger', async () => {
-    (isClientRender as any).mockImplementation(() => false);
+    isClientRender.mockImplementation(() => false);
     const store = mockStore({});
 
-    (fetchApi as any).setCustomOutput(false, {});
+    fetchApi.setCustomOutput(false, {});
     await store.dispatch(fetchSearchProfiles(application, {country: 'at', q: 'ku'}));
 
     expect(logger.error).toHaveBeenCalled();

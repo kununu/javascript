@@ -15,7 +15,7 @@ const mockStore = configureMockStore([thunk]);
 
 describe('Metadata actions', () => {
   beforeEach(() => {
-    (fetchApi as any).getCustomCallback().mockClear();
+    fetchApi.getCustomCallback().mockClear();
     logger.error.mockClear();
   });
 
@@ -34,16 +34,16 @@ describe('Metadata actions', () => {
 
     await store.dispatch(fetchMeta(application, 'at'));
 
-    const fetchCall = (fetchApi as any).getCustomCallback().mock.calls[0];
+    const fetchCall = fetchApi.getCustomCallback().mock.calls[0];
 
-    expect((fetchApi as any).getCustomCallback().mock.calls.length).toBe(1);
+    expect(fetchApi.getCustomCallback().mock.calls.length).toBe(1);
     expect(fetchCall[0]).toBe('/meta');
   });
 
   it('should call logger', async () => {
     const store = mockStore({});
 
-    (fetchApi as any).setCustomOutput(false, {});
+    fetchApi.setCustomOutput(false, {});
     await store.dispatch(fetchMeta(application, 'at'));
 
     expect(logger.error).toHaveBeenCalled();

@@ -20,7 +20,7 @@ function initStore (reducers, initialState) {
 
 export const initializeStore = (
   reducers: unknown,
-  preloadedState: Record<string, unknown>,
+  preloadedState: Record<string, unknown> = {},
 ): AppDispatch => {
   let _store = store ?? initStore(reducers, preloadedState); //eslint-disable-line
 
