@@ -1,4 +1,4 @@
-import {getLanguage} from '.';
+import getLanguage from '.';
 
 const defaultReq = {
   cookies: {},

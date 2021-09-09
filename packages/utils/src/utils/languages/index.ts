@@ -1,5 +1,3 @@
-import {join} from 'path';
-
 import setCookieLanguage from '../setCookieLanguage';
 
 type ReqProp = {
@@ -97,7 +95,7 @@ const handleAcceptLanguage = (acceptLanguage: string, req: ReqProp, res: unknown
   return null;
 };
 
-export const getLanguage = (req: ReqProp, res: unknown): unknown => {
+const getLanguage = (req: ReqProp, res: unknown): unknown => {
   const {'x-lang': xLangQuery} = req.query;
   const {kununu_x_lang: xLangCookie} = req.cookies;
   const {'accept-language': acceptLanguage} = req.headers;
@@ -112,8 +110,5 @@ export const getLanguage = (req: ReqProp, res: unknown): unknown => {
     handleAcceptLanguage(acceptLanguage, req, res, localeInURL) ||
     setLanguageObj(localeInURL, req, res);
 };
-// eslint-disable-next-line
-export const serverSideGetTranslations = (locale: string, page: string): Promise<Record<string, string>> => require(join(__dirname, `../../client/translations/${page}-${locale}.json`));
 
-// I had to switch here to normal string concat because jests watch mode was constantly complaining about not finding dynamic async imports …
-export const clientSideGetTranslations = (locale: string, page: string): Promise<Record<string, string>> => import(/* webpackChunkName: '[request]' */ 'client/translations/' + page + '-' + locale + '.json'); // eslint-disable-line prefer-template
+export default getLanguage;
