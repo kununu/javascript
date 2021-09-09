@@ -1,6 +1,6 @@
 import {getUrl} from '@kununu/utils/dist';
 
-import {useAppSelector} from './useReduxTypescript';
+import {useAppSelector} from '../../index';
 
 export default function useFooterMetaData(
   baseUrl: string,
