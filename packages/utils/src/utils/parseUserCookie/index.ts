@@ -19,7 +19,7 @@ import {
  * @param {Object} req.cookies
  * @param {function} dispatch
  */
-export default function parseUserCookie (req, dispatch, config) {
+export default function parseUserCookie (req:Record<string, any>, dispatch:any, config:any): Promise<unknown> {
   const {application, accessTokenCookie, userLoggedInfoCookie} = config;
   const token = getParsedCookie(req.cookies, accessTokenCookie, application);
 
