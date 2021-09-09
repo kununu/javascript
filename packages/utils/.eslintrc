@@ -1,0 +1,50 @@
+{
+  "extends":[ 
+    "@kununu/eslint-config",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [ "@typescript-eslint"],
+  "env": {
+    "jest": true
+  },
+  "parserOptions": {
+    "requireConfigFile": false
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      2,
+      {"extensions": [".js", ".jsx", ".ts", ".tsx"]}
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {"devDependencies": ["**/*.spec.ts", "**/*.spec.tsx"]}
+    ],
+    "no-use-before-define": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".ts", ".tsx", ".jsx", ".json"]
+      }
+    }
+  }
+}
