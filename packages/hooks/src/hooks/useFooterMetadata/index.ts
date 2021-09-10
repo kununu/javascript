@@ -1,8 +1,8 @@
 import {getUrl} from '@kununu/utils/dist';
 
-import {useAppSelector} from '../../index';
+import {useAppSelector} from '../..';
 
-export default function useFooterMetaData(
+export default function useFooterMetadata (
   baseUrl: string,
   query: Record<string, unknown>,
   urlParams: string,
