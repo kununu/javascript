@@ -21,6 +21,11 @@
     "sourceMap": true,
     "jsx": "react",
     "outDir": "./dist",
+    "paths": {
+      "actions/*": [
+        "./src/actions/*"
+      ],
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -29,8 +34,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
-  "paths": {
-    "actions/*": ["./src/actions/*"]
-  }
+  ]
 }

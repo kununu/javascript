@@ -1,4 +1,4 @@
-import {SET_USER_AGENT} from '../../actions/userAgent';
+import {SET_USER_AGENT} from 'actions/userAgent';
 
 const defaultState = '';
 

@@ -2,7 +2,7 @@ import {
   REQUEST_SEARCH_PROFILES,
   SUCCESS_SEARCH_PROFILES,
   FAILURE_SEARCH_PROFILES,
-} from '../../actions/searchProfiles';
+} from 'actions/searchProfiles';
 
 const initialState = {
   err: null,

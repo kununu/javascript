@@ -1,4 +1,4 @@
-import {RECEIVE_META} from '../../actions/metadata';
+import {RECEIVE_META} from 'actions/metadata';
 
 import reducer from '.';
 

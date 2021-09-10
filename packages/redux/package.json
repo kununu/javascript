@@ -41,7 +41,6 @@
     "@typescript-eslint/eslint-plugin": "4.30.0",
     "@typescript-eslint/parser": "4.30.0",
     "babel-plugin-module-resolver": "4.1.0",
-    "eslint-import-resolver-alias": "^1.1.2",
     "jest": "27.1.0",
     "jsdom": "17.0.0",
     "react-dom": "^17.0.2",

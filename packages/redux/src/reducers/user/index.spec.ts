@@ -2,7 +2,7 @@ import {
   SET_USER_INFO,
   SET_USER_LOGGED_STATUS,
   SET_USER_LOGGED_INFO,
-} from '../../actions/user';
+} from 'actions/user';
 
 import userReducer from '.';
 

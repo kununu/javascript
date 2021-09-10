@@ -1,6 +1,6 @@
 import {
   SET_USER_AGENT,
-} from '../../actions/userAgent';
+} from 'actions/userAgent';
 
 import reducer from '.';
 

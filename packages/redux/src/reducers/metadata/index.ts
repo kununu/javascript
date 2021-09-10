@@ -1,4 +1,4 @@
-import {RECEIVE_META} from '../../actions/metadata';
+import {RECEIVE_META} from 'actions/metadata';
 
 export default function metadata (
   state = {},

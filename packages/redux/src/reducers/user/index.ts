@@ -2,7 +2,7 @@ import {
   SET_USER_INFO,
   SET_USER_LOGGED_INFO,
   SET_USER_LOGGED_STATUS,
-} from '../../actions/user';
+} from 'actions/user';
 
 const initialStore = {
   id: null,
