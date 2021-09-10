@@ -1,5 +1,6 @@
 
 // This is needed when using typescript, check https://redux.js.org/usage/usage-with-typescript#define-typed-hooks
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import type {RootState, AppDispatch} from '@kununu/redux/dist/store';
 
