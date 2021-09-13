@@ -2,7 +2,7 @@
   "name": "@kununu/redux",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0",
   "description": "Hosts react actions and reducers to be used cross application.",
   "main": "dist/",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@kununu/kununu-utils": "1.27.0",
-    "@kununu/utils": "1.0.0-beta.13",
+    "@kununu/utils": "1.0.1",
     "is-mobile": "3.0.0",
     "lodash": "4.17.21",
     "react": "17.0.2",
@@ -43,7 +43,7 @@
     "babel-plugin-module-resolver": "4.1.0",
     "jest": "27.1.0",
     "jsdom": "17.0.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "17.0.2",
     "typescript": "4.4.2"
   }
 }
