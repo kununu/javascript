@@ -9,6 +9,7 @@ export default function useFooterMetadata (
 ): any {
   const {footer} = useAppSelector(({metadata}) => metadata);
 
+  // this can happen during build and in case there is a network error during fetching the footer
   if (!footer?.claim) return null;
 
   footer.languages.map(item => {
