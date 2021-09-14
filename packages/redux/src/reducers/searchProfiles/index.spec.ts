@@ -13,7 +13,7 @@ const initialState = {
   profiles: [],
 };
 
-describe('#reducer searchProfiles', () => {
+describe('searchProfiles reducer', () => {
   it('should return state as is without a valid action type', () => {
     const action = {
       type: 'INVALID_TYPE',

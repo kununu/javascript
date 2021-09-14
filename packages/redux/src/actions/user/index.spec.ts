@@ -15,7 +15,7 @@ import {
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('User actions', () => {
+describe('user actions', () => {
   beforeEach(() => {
     fetchApi.getCustomCallback().mockClear();
   });

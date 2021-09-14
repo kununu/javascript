@@ -13,7 +13,7 @@ jest.mock('@kununu/kununu-utils/dist/kununu-logger', () => ({
 const application = 'application';
 const mockStore = configureMockStore([thunk]);
 
-describe('Metadata actions', () => {
+describe('metadata actions', () => {
   beforeEach(() => {
     fetchApi.getCustomCallback().mockClear();
     logger.error.mockClear();

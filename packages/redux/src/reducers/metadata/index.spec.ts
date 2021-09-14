@@ -2,7 +2,7 @@ import {RECEIVE_META} from 'actions/metadata';
 
 import reducer from '.';
 
-describe('reducer metadata', () => {
+describe('metadata reducer', () => {
   it('should return state as is without an action', () => {
     const action = undefined;
 

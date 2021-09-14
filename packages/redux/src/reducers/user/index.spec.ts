@@ -18,7 +18,7 @@ const initialState = {
   userProfileType: '',
 };
 
-describe('#reducer user', () => {
+describe('user reducer', () => {
   it('should return state as is without a valid action type', () => {
     const action = {
       payload: {},

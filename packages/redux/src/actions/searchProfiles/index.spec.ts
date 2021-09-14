@@ -18,7 +18,7 @@ jest.mock('@kununu/kununu-utils/dist/kununu-logger', () => ({
   },
 }));
 
-describe('#actions searchProfiles', () => {
+describe('searchProfiles actions', () => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares);
 
