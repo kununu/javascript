@@ -1,4 +1,3 @@
-
 jest.mock('@kununu/utils/dist', () => {
   let success = true;
   let output = {};
@@ -53,4 +52,3 @@ jest.mock('@kununu/utils/dist', () => {
     isClientRender: jest.fn(),
   };
 });
-
