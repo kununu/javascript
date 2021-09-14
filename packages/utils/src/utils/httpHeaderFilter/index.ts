@@ -11,6 +11,12 @@ const allowedHeaders = [
   'X-Lang',
 ];
 
+/**
+ * Filters the headers to only return the valid ones
+ *
+ * @param {Object} headers
+ * @param {Array} additionalAllowed
+ */
 const httpHeaderFilter = (
   headers: Record<string, string>,
   additionalAllowed = [],

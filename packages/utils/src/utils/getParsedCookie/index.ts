@@ -1,12 +1,18 @@
 import camelize from 'camelize';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
 
+/**
+ * Checks if json cookie is valid, when not, sets cookie to null
+ *
+ * @param {Object} cookies
+ * @param {string} cookieId
+ * @param {string} application
+ */
 const getParsedCookie = (
   cookies: Record<string, string>,
   cookieId: string,
   application: string,
 ): {accessToken: string} => {
-  /** check if json cookie is valid, when not, set cookie to null */
   if (cookies[cookieId]) {
     try {
       const jsonParsed = JSON.parse(cookies[cookieId]);

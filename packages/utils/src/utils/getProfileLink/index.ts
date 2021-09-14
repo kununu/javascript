@@ -52,6 +52,13 @@ const links = {
   },
 };
 
+/**
+ * Replaces custom params in each link
+ *
+ * @param {string} link
+ * @param {Object} params
+ * @param {string} publicFqdn
+ */
 const getProfileLink = ({
   link,
   params,
@@ -65,7 +72,6 @@ const getProfileLink = ({
   const parsedCountry = isDach(countryCode) ? 'de' : countryCode;
   const profileLink = `${publicFqdn || ''}${links[parsedCountry][link]}`;
 
-  // Replace custom params in each link
   return Object.keys(params).reduce((acc, param) => acc.replace(new RegExp(`{${param}}`, 'g'), params[param] || ''), profileLink);
 };
 
