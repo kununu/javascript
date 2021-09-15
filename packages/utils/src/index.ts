@@ -8,7 +8,7 @@ import setCookieLanguage from './utils/setCookieLanguage';
 import isLoggedIn from './utils/isLoggedIn';
 import getParsedCookie from './utils/getParsedCookie';
 import getLanguage from './utils/languages';
-import fetchApi from './utils/api';
+import fetchApi from './utils/fetchApi';
 import fetchApiDomain, {getBFFURL} from './utils/fetchApiDomain';
 import parseUserCookie from './utils/parseUserCookie';
 import {
