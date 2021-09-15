@@ -49,7 +49,7 @@ function fetchOrTimeout (params: [string, Record<string, unknown>], timeout: num
         // Set status so that our error module shows the message
         // below instead of a generic error message.
         message: 'Request timed out, please try again.',
-        status: 408,
+        status: httpStatus.REQUEST_TIMEOUT,
       }),
       timeout,
     );
@@ -85,7 +85,6 @@ function handleRequest ({url, params}, timeout) {
   )
     .then(verifyHttpStatus)
     .then(response => response.json())
-    .then(json => json)
     .catch(error => Promise.reject(error));
 }
 
