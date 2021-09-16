@@ -5,8 +5,12 @@ import buildHTTPHeaders from './utils/buildHTTPHeaders';
 import setApiHeaders from './utils/setApiHeaders';
 import getProfileLink from './utils/getProfileLink';
 import setCookieLanguage from './utils/setCookieLanguage';
-import fetchApi from './utils/api';
+import isLoggedIn from './utils/isLoggedIn';
+import getParsedCookie from './utils/getParsedCookie';
+import getLanguage from './utils/languages';
+import fetchApi from './utils/fetchApi';
 import fetchApiDomain, {getBFFURL} from './utils/fetchApiDomain';
+import parseUserCookie from './utils/parseUserCookie';
 import {
   getCountriesByLocale,
   getCountryByLocale,
@@ -16,17 +20,21 @@ import {
 
 export {
   buildHTTPHeaders,
-  fetchApiDomain,
   fetchApi,
+  fetchApiDomain,
   getBFFURL,
   getCountriesByLocale,
   getCountryByLocale,
+  getLanguage,
+  getParsedCookie,
   getProfileLink,
   getUrl,
   httpHeaderFilter,
   isClientRender,
   isDach,
+  isLoggedIn,
   isUSLocale,
+  parseUserCookie,
   setApiHeaders,
   setCookieLanguage,
 };

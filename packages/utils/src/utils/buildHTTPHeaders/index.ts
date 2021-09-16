@@ -1,5 +1,12 @@
 import httpHeaderFilter from '../httpHeaderFilter';
 
+/**
+ * Builds the headers with only the valid ones and
+ * adds the x-lang header in case there is a locale defined
+ *
+ * @param {Array} params
+ * @param {number} timeout
+ */
 const buildHTTPHeaders = (
   req?: Record<string, any>,
   additionalHeaders = {},

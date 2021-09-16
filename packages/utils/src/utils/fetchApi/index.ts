@@ -16,6 +16,11 @@ const HTTP_SUCCESS_CODES = [
   httpStatus.NOT_MODIFIED,
 ];
 
+/**
+ * Checks if the response's status is a success code
+ *
+ * @param {Object} response
+ */
 function verifyHttpStatus (response) {
   if (HTTP_SUCCESS_CODES.includes(response.status)) {
     return response;
@@ -29,6 +34,13 @@ function verifyHttpStatus (response) {
   });
 }
 
+/**
+ * Executes a fetch request but also makes sure,
+ * that response doesn't take too long
+ *
+ * @param {Array} params
+ * @param {number} timeout
+ */
 function fetchOrTimeout (params: [string, Record<string, unknown>], timeout: number) {
   return new Promise((resolve, reject) => {
     setTimeout(
@@ -46,6 +58,13 @@ function fetchOrTimeout (params: [string, Record<string, unknown>], timeout: num
   });
 }
 
+/**
+ * Wrapper to handle fetch requests and resolve the result
+ *
+ * @param {string} url
+ * @param {Object} params
+ * @param {number} timeout
+ */
 function handleRequest ({url, params}, timeout) {
   return fetchOrTimeout(
     [
@@ -69,6 +88,14 @@ function handleRequest ({url, params}, timeout) {
     .catch(error => Promise.reject(error));
 }
 
+/**
+ * Unified api fetch for calls to bff
+ * @param {string} endpoint
+ * @param {Object} query
+ * @param {Object} params
+ * @param {number} timeout
+ * @param {boolean} isToCheckKununuSession
+ */
 export default function fetchApi (
   endpoint: string,
   query = {},

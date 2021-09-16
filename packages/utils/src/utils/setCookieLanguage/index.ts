@@ -9,6 +9,12 @@ const cookieOptions = {
 
 const cookieName = 'kununu_x_lang';
 
+/**
+ * Sets the x-lang cookie that refers to the language
+ *
+ * @param {string} value
+ * @param {Object} res
+ */
 const setCookieLanguage = (value: string, res?: Record<string, any>): void => {
   if (res && res.cookie) {
     res.cookie(cookieName, value, cookieOptions);
