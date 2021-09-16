@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
-import {fetchApi, isClientRender} from '@kununu/utils/dist';
+import {fetchApi, isClientRender} from '@kununu/utils';
 
 import {
   fetchSearchProfiles,

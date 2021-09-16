@@ -1,5 +1,5 @@
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
-import {fetchApi} from '@kununu/utils/dist';
+import {fetchApi} from '@kununu/utils';
 
 export const RECEIVE_META = 'RECEIVE_META';
 

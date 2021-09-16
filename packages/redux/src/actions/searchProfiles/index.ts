@@ -1,4 +1,4 @@
-import {fetchApi, isClientRender} from '@kununu/utils/dist';
+import {fetchApi, isClientRender} from '@kununu/utils';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
 
 interface Query {

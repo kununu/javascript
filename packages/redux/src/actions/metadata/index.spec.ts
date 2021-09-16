@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import {fetchApi} from '@kununu/utils/dist';
+import {fetchApi} from '@kununu/utils';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
 
 import {receiveMeta, fetchMeta, RECEIVE_META} from '.';
