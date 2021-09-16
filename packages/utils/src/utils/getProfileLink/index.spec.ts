@@ -50,5 +50,4 @@ describe('getProfileLink', () => {
 
     expect(result).toBe('/us/insights?forms=bewerten,gehalt,kultur');
   });
-
 });
