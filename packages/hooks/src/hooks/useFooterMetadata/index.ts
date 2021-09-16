@@ -1,4 +1,4 @@
-import {getUrl} from '@kununu/utils/dist';
+import {getUrl} from '@kununu/utils';
 
 import {useAppSelector} from '../..';
 
