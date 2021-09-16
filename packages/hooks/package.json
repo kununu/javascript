@@ -2,9 +2,9 @@
   "name": "@kununu/hooks",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.0.4",
+  "version": "1.1.0-beta.1",
   "description": "Hosts react hooks to be used cross application.",
-  "main": "dist/",
+  "main": "dist/index.js",
   "scripts": {
     "build": "../../scripts/build.sh",
     "clean": "../../scripts/clean.sh",
