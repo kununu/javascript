@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@kununu/kununu-utils": "1.25.3",
-    "@kununu/redux": "1.0.0-beta.4",
+    "@kununu/redux": "1.0.0",
     "camelize": "1.0.0",
     "is-mobile": "3.0.0",
     "jwt-decode": "3.1.2",
