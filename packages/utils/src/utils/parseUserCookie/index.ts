@@ -1,10 +1,5 @@
 import jwtDecode from 'jwt-decode';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
-import {
-  fetchUserInfo,
-  setUserLoggedInfo,
-  setUserLoggedStatus,
-} from '@kununu/redux/dist/actions/user';
 
 import {
   buildHTTPHeaders,
@@ -19,7 +14,7 @@ import {
  * @param {Object} req.cookies
  * @param {function} dispatch
  */
-export default function parseUserCookie (req: Record<string, any>, dispatch: any, config: Record<string, string>): Promise<unknown> {
+export default function parseUserCookie (req: Record<string, any>, dispatch: any, config: Record<string, string>, fetchUserInfo:any, setUserLoggedInfo:any, setUserLoggedStatus:any): Promise<unknown> {
   const {application, accessTokenCookie, userLoggedInfoCookie} = config;
   const token = getParsedCookie(req.cookies, accessTokenCookie, application);
 

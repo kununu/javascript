@@ -1,8 +1,3 @@
-import {
-  fetchUserInfo,
-  setUserLoggedInfo,
-  setUserLoggedStatus,
-} from '@kununu/redux/dist/actions/user';
 import jwtDecode from 'jwt-decode';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
 
@@ -35,6 +30,9 @@ const config = {
   userLoggedInfoCookie: 'userLoggedInfoCookie',
 };
 const dispatch = jest.fn();
+const fetchUserInfo = jest.fn();
+const setUserLoggedInfo = jest.fn();
+const setUserLoggedStatus = jest.fn();
 const defaultReq = {
   cookies: {},
   headers: {},
@@ -48,7 +46,7 @@ describe('parseUserCookie', () => {
 
   it('should return undefined because token is not valid', () => {
     (getParsedCookie as any).mockImplementation(() => false);
-    const result = parseUserCookie(defaultReq, dispatch, config);
+    const result = parseUserCookie(defaultReq, dispatch, config, fetchUserInfo, setUserLoggedInfo, setUserLoggedStatus);
 
     expect(result).toBeFalsy();
   });
@@ -56,7 +54,7 @@ describe('parseUserCookie', () => {
   it('should call setUserLoggedStatus and fetchUserInfo', () => {
     (getParsedCookie as any).mockImplementation(() => ({accessToken: 'kununu_access_token_v1'}));
     (isLoggedIn as any).mockImplementation(() => (true));
-    parseUserCookie(defaultReq, dispatch, config);
+    parseUserCookie(defaultReq, dispatch, config, fetchUserInfo, setUserLoggedInfo, setUserLoggedStatus);
 
     expect(setUserLoggedStatus).toHaveBeenCalledWith(true);
     expect(setUserLoggedInfo).toHaveBeenCalledWith({accessToken: 'kununu_access_token_v1'});
@@ -73,7 +71,7 @@ describe('parseUserCookie', () => {
       },
     };
 
-    parseUserCookie(req, dispatch, config);
+    parseUserCookie(req, dispatch, config, fetchUserInfo, setUserLoggedInfo, setUserLoggedStatus);
 
     expect(buildHTTPHeaders).toHaveBeenCalledWith(req, {Cookie: req.headers.cookie});
   });
@@ -81,7 +79,7 @@ describe('parseUserCookie', () => {
   it('should not call fetchUserInfo because user is not logged in', () => {
     (getParsedCookie as any).mockImplementation(() => ({accessToken: 'kununu_access_token_v1'}));
     (isLoggedIn as any).mockImplementation(() => (false));
-    parseUserCookie(defaultReq, dispatch, config);
+    parseUserCookie(defaultReq, dispatch, config, fetchUserInfo, setUserLoggedInfo, setUserLoggedStatus);
 
     expect(setUserLoggedStatus).toHaveBeenCalledWith(false);
     expect(fetchUserInfo).not.toHaveBeenCalled();
@@ -90,7 +88,7 @@ describe('parseUserCookie', () => {
   it('should call logger.error', () => {
     (getParsedCookie as any).mockImplementation(() => ({}));
     (isLoggedIn as any).mockImplementation(() => (true));
-    parseUserCookie({cookies: 'cookie'}, dispatch, config);
+    parseUserCookie({cookies: 'cookie'}, dispatch, config, fetchUserInfo, setUserLoggedInfo, setUserLoggedStatus);
 
     expect(logger.error).toHaveBeenCalled();
   });
