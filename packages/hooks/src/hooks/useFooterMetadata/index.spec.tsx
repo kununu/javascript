@@ -14,10 +14,25 @@ describe('useFooterMetadata', () => {
       countryCode: 'at',
     };
 
-    useAppSelector.mockImplementation(() => metadata);
+    const mockedUseAppSelector = cb => cb({metadata});
+
+    useAppSelector.mockImplementation(mockedUseAppSelector);
+
     const footer = useFooterMetadata('/at/kununu', query, '');
 
     expect(footer).toEqual(metadata.footer);
+  });
+
+  it('should return null when the useAppSelector hooks does not return footer data', () => {
+    const query = {
+      countryCode: 'at',
+    };
+
+    useAppSelector.mockImplementation(() => ({footer: undefined}));
+
+    const footer = useFooterMetadata('/at/kununu', query, '');
+
+    expect(footer).toEqual(null);
   });
 
   it('should fill the languages with the correct link with x-lang param', () => {

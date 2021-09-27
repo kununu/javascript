@@ -4,7 +4,16 @@ import React from 'react';
 import useResponsive from '.';
 
 const TestComponent = () => {
-  const {isDesktop, isMobile, isTablet} = useResponsive(
+  const {
+    isDesktop,
+    isL,
+    isM,
+    isMobile,
+    isS,
+    isTablet,
+    isXs,
+    isXxs,
+  } = useResponsive(
     'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0',
   );
 
@@ -13,12 +22,56 @@ const TestComponent = () => {
     (isTablet && 'Tablet') ||
     (isMobile && 'Mobile') ||
     '';
+  const subtitle =
+    (isXxs && 'Xxs') ||
+    (isXs && 'Xs') ||
+    (isS && 'S') ||
+    (isM && 'M') ||
+    (isL && 'L') ||
+    '';
 
-  return <h1>{title}</h1>;
+  return (
+    <>
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
+    </>
+  );
 };
 
 describe('hooks/useResponsive', () => {
-  it('should print Mobile if window width is 767px', () => {
+  it('should print Mobile and Xxs if window width is below mediaXsMobile', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 359,
+      writable: true,
+    });
+
+    const {getByRole} = render(<TestComponent />);
+
+    const title = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
+
+    expect(title.textContent).toBe('Mobile');
+    expect(subtitle.textContent).toBe('Xxs');
+  });
+
+  it('should print Mobile and Xs if window width is equal to mediaXsMobile', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 360,
+      writable: true,
+    });
+
+    const {getByRole} = render(<TestComponent />);
+
+    const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
+
+    expect(heading.textContent).toBe('Mobile');
+    expect(subtitle.textContent).toBe('Xs');
+  });
+
+  it('should print Mobile and Xs if window width is below to mediaSTablet', () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
       value: 767,
@@ -28,11 +81,13 @@ describe('hooks/useResponsive', () => {
     const {getByRole} = render(<TestComponent />);
 
     const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
 
     expect(heading.textContent).toBe('Mobile');
+    expect(subtitle.textContent).toBe('Xs');
   });
 
-  it('should print Tablet if window width is 768px', () => {
+  it('should print Tablet and S if window width is equal to mediaSTablet', () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
       value: 768,
@@ -42,35 +97,73 @@ describe('hooks/useResponsive', () => {
     const {getByRole} = render(<TestComponent />);
 
     const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
 
     expect(heading.textContent).toBe('Tablet');
+    expect(subtitle.textContent).toBe('S');
   });
 
-  it('should print Tablet if window width is 1023px', () => {
+  it('should print Tablet and S if window width is below mediaMDesktop', () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
-      value: 1023,
+      value: 1279,
       writable: true,
     });
 
     const {getByRole} = render(<TestComponent />);
 
     const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
 
     expect(heading.textContent).toBe('Tablet');
+    expect(subtitle.textContent).toBe('S');
   });
 
-  it('should print Desktop if window width is 1024px', () => {
+  it('should print Desktop and M if window width is equal to mediaMDesktop', () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
-      value: 1024,
+      value: 1280,
       writable: true,
     });
 
     const {getByRole} = render(<TestComponent />);
 
     const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
 
     expect(heading.textContent).toBe('Desktop');
+    expect(subtitle.textContent).toBe('M');
+  });
+
+  it('should print Desktop and M if window width is below mediaLDesktop', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1919,
+      writable: true,
+    });
+
+    const {getByRole} = render(<TestComponent />);
+
+    const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
+
+    expect(heading.textContent).toBe('Desktop');
+    expect(subtitle.textContent).toBe('M');
+  });
+
+  it('should print Desktop and L if window width is equal to mediaLDesktop', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1920,
+      writable: true,
+    });
+
+    const {getByRole} = render(<TestComponent />);
+
+    const heading = getByRole('heading', {level: 1});
+    const subtitle = getByRole('heading', {level: 2});
+
+    expect(heading.textContent).toBe('Desktop');
+    expect(subtitle.textContent).toBe('L');
   });
 });
