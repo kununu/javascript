@@ -5,7 +5,14 @@ import useResponsive from '.';
 
 const TestComponent = () => {
   const {
-    isDesktop, isMobile, isTablet, isXxs, isXs, isS, isM, isL,
+    isDesktop,
+    isL,
+    isM,
+    isMobile,
+    isS,
+    isTablet,
+    isXs,
+    isXxs,
   } = useResponsive(
     'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0',
   );

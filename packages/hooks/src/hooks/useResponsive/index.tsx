@@ -6,7 +6,7 @@ import {
 import mobile from 'is-mobile';
 import throttle from 'lodash/throttle';
 
-const media: { [key: string]: number } = {
+const media: {[key: string]: number} = {
   LDesktop: 1920,
   MDesktop: 1280,
   STablet: 768,
