@@ -2,7 +2,7 @@
   "name": "@kununu/hooks",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Hosts react hooks to be used cross application.",
   "main": "dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "test:jest": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "@kununu/redux": "1.0.1",
+    "@kununu/redux": "1.0.2",
     "@kununu/utils": "1.1.1",
     "is-mobile": "3.0.0",
     "lodash": "4.17.21"
