@@ -3,7 +3,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import mobile from 'is-mobile';
 import throttle from 'lodash/throttle';
 
 const media: {[key: string]: number} = {
@@ -25,21 +24,14 @@ type ReturnDataProps = {
   isTablet: boolean
 };
 
-const useResponsive = (ua: string): ReturnDataProps => {
-  const onlyMobile = mobile({
-    ua,
-  });
-  const mobileOrTablet = mobile({
-    tablet: true,
-    ua,
-  });
+const useResponsive = (): ReturnDataProps => {
   const [responsive, setResponsive] = useState({
-    isDesktop: !mobileOrTablet,
+    isDesktop: null,
     isL: null,
     isM: null,
-    isMobile: onlyMobile,
+    isMobile: null,
     isS: null,
-    isTablet: !onlyMobile && mobileOrTablet,
+    isTablet: null,
     isXs: null,
     isXxs: null,
   });
