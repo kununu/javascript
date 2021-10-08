@@ -17,6 +17,9 @@ const nextServer = (config) => {
   const { appPrefix, application } = config;
 
   const server = express();
+
+  server.set('case sensitive routing', true);
+
   // Register all the middlewares that will be executed in every request
   server.use(getMiddlewares(application));
 
