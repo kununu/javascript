@@ -9,7 +9,6 @@ import {
 
 import parseUserCookie from '.';
 
-jest.mock('@kununu/redux/dist/actions/user');
 jest.mock('@kununu/kununu-utils/dist/kununu-logger');
 jest.mock('jwt-decode');
 jest.mock('../..');

@@ -17,6 +17,7 @@ import {
   isDach,
   isUSLocale,
 } from './utils/countries';
+import sanitize from './utils/sanitize';
 
 export {
   buildHTTPHeaders,
@@ -35,6 +36,7 @@ export {
   isLoggedIn,
   isUSLocale,
   parseUserCookie,
+  sanitize,
   setApiHeaders,
   setCookieLanguage,
 };
