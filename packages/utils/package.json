@@ -2,7 +2,7 @@
   "name": "@kununu/utils",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Hosts react utils to be used cross application.",
   "main": "dist/index.js",
   "scripts": {
@@ -18,10 +18,10 @@
   "dependencies": {
     "@kununu/kununu-utils": "1.25.3",
     "camelize": "1.0.0",
-    "is-mobile": "3.0.0",
     "jwt-decode": "3.1.2",
     "lodash": "4.17.21",
-    "regenerator-runtime": "0.13.9"
+    "regenerator-runtime": "0.13.9",
+    "sanitize-html": "2.5.2"
   },
   "devDependencies": {
     "@babel/cli": "7.14.3",
