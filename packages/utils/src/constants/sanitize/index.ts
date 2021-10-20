@@ -1,0 +1,40 @@
+// Extracted from https://github.com/apostrophecms/sanitize-html#what-are-the-default-options
+// Added some more and removed insecure ones, like iframe
+export const DEFAULT_ALLOWED_TAGS: string[] = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'blockquote',
+  'p',
+  'a',
+  'ul',
+  'ol',
+  'li',
+  'b',
+  'i',
+  'strong',
+  'em',
+  'strike',
+  'abbr',
+  'code',
+  'hr',
+  'br',
+  'div',
+  'table',
+  'thead',
+  'caption',
+  'tbody',
+  'tr',
+  'th',
+  'td',
+  'pre',
+  'img',
+  'noscript',
+];
+
+export default {
+  DEFAULT_ALLOWED_TAGS,
+};

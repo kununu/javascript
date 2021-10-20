@@ -23,7 +23,7 @@ describe('sanitizeHtml', () => {
           a: ['href'],
           img: ['src'],
         },
-        allowedTags: ['b', 'a'], 
+        allowedTags: ['b', 'a'],
       },
     );
 
@@ -68,7 +68,7 @@ describe('sanitizeHtml', () => {
     mockSanitizeHtml.mockImplementation(
       (html, options) => options.textFilter(html),
     );
-    
+
     const result = sanitize('xing &amp; kununu', {skipHtmlEntities: true});
 
     expect(result).toEqual('xing & kununu');
