@@ -7,7 +7,7 @@ export default function useFooterMetadata (
   query: Record<string, unknown>,
   urlParams: string,
 ): any {
-  const {footer = {}} = useAppSelector(({metadata}) => metadata);
+  const {footer = {}} = useAppSelector(({metadata = {}}) => metadata);
 
   // this can happen during build and in case there is a network error during fetching the footer
   if (!footer?.claim) return null;
