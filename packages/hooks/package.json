@@ -18,7 +18,8 @@
   "dependencies": {
     "@kununu/redux": "1.1.0",
     "@kununu/utils": "1.3.0",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "request": "2.88.2"
   },
   "devDependencies": {
     "@babel/cli": "7.14.3",
