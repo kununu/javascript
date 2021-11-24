@@ -18,6 +18,7 @@ import {
   isUSLocale,
 } from './utils/countries';
 import sanitize from './utils/sanitize';
+import nextServer from './utils/nextServer';
 
 export {
   buildHTTPHeaders,
@@ -39,4 +40,5 @@ export {
   sanitize,
   setApiHeaders,
   setCookieLanguage,
+  nextServer,
 };
