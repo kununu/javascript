@@ -1,6 +1,4 @@
-import {Request, Response} from 'express';
-
-const isAliveHandler = (req: Request, res: Response): void => {
+const isAliveHandler = (req: any, res: any): void => {
   res.header('cache-control', 'private, no-cache, max-age=0'); // ETOE-TEST
 
   res.json({build: process.env.BUILD_NAME || 'local development'});

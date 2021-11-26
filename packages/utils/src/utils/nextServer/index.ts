@@ -5,18 +5,18 @@ import getMiddlewares from './middlewares';
 import isAliveHandler from './handlers/isAliveHandler';
 import staticResourceHandler from './handlers/staticResourceHandler';
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({dev});
-
 export interface INextServer {
   app: any,
-  server: express.Server
+  server: any
 }
 
 interface IConfig {
   application: string,
   appPrefix: string
 }
+
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({dev});
 
 const nextServer = (config: IConfig): INextServer => {
   const handler = app.getRequestHandler();
