@@ -1,9 +1,10 @@
-import express from 'express';
-import next from 'next';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const express = require('express');
+const next = require('next');
 
-import getMiddlewares from './middlewares';
-import isAliveHandler from './handlers/isAliveHandler';
-import staticResourceHandler from './handlers/staticResourceHandler';
+const getMiddlewares = require('./middlewares');
+const isAliveHandler = require('./handlers/isAliveHandler');
+const staticResourceHandler = require('./handlers/staticResourceHandler');
 
 export interface INextServer {
   app: any,

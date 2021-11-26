@@ -1,11 +1,12 @@
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import compression from 'compression';
-import helmet from 'helmet';
-import checkReferrer from '@kununu/kununu-utils/dist/middlewares/checkReferrer';
-import expressLogger from '@kununu/kununu-utils/dist/middlewares/expressLogger';
+/* eslint-disable */
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const helmet = require('helmet');
+const checkReferrer = require('@kununu/kununu-utils/dist/middlewares/checkReferrer');
+const expressLogger = require('@kununu/kununu-utils/dist/middlewares/expressLogger');
 
-const getMiddlewares = (application: string): any[] => [
+export const getMiddlewares = (application: string): any => [
   helmet({
     contentSecurityPolicy: false,
   }),
@@ -16,4 +17,4 @@ const getMiddlewares = (application: string): any[] => [
   expressLogger(application),
 ];
 
-export default getMiddlewares;
+module.exports = getMiddlewares;
