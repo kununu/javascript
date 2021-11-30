@@ -18,6 +18,7 @@ import {
   isUSLocale,
 } from './utils/countries';
 import sanitize from './utils/sanitize';
+import {getGoogleTagManager, getGoogleTagManagerNoScript} from './utils/getGoogleTagManager';
 
 export {
   buildHTTPHeaders,
@@ -39,4 +40,6 @@ export {
   sanitize,
   setApiHeaders,
   setCookieLanguage,
+  getGoogleTagManager,
+  getGoogleTagManagerNoScript,
 };
