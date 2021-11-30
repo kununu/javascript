@@ -46,4 +46,4 @@ const nextServer = (config: IConfig): INextServer => {
   return {app, server};
 };
 
-export default nextServer;
+module.exports = nextServer;

@@ -2,7 +2,7 @@
   "name": "@kununu/utils",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.3.2-beta.8.2",
+  "version": "1.3.2-beta.8.5",
   "description": "Hosts react utils to be used cross application.",
   "main": "dist/index.js",
   "scripts": {
