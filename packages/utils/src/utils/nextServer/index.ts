@@ -1,20 +1,28 @@
-import express from "express";
+/* eslint-disable @typescript-eslint/no-var-requires */
+const express = require('express');
+const next = require('next');
 
-import next from "next";
+const getMiddlewares = require('./middlewares');
+const isAliveHandler = require('./handlers/isAliveHandler');
+const staticResourceHandler = require('./handlers/staticResourceHandler');
 
-import getMiddlewares from "./middlewares";
+export interface INextServer {
+  app: any,
+  server: any
+}
 
-import isAliveHandler from "./handlers/isAliveHandler";
+interface IConfig {
+  application: string,
+  appPrefix: string
+}
 
-import staticResourceHandler from "./handlers/staticResourceHandler";
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({dev});
 
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-
-const nextServer = (config) => {
+const nextServer = (config: IConfig): INextServer => {
   const handler = app.getRequestHandler();
 
-  const { appPrefix, application } = config;
+  const {appPrefix, application} = config;
 
   const server = express();
 
@@ -27,7 +35,7 @@ const nextServer = (config) => {
   server.get(`${appPrefix}/isalive`, isAliveHandler);
 
   // Set cache header for static resources - it can be long, since bundles should contain unique id
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === 'production') {
     // Found here: https://github.com/zeit/next.js/issues/4105
     server.get(/^\/_next\/static\/(images|css)\//, staticResourceHandler);
   }
@@ -35,7 +43,7 @@ const nextServer = (config) => {
   // Needs to always be internal, so that "/app-sitemaps" routes can be resolved
   server.use(appPrefix, handler);
 
-  return { server, app };
+  return {app, server};
 };
 
-export default nextServer;
+module.exports = nextServer;

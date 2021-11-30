@@ -18,6 +18,7 @@ import {
   isUSLocale,
 } from './utils/countries';
 import sanitize from './utils/sanitize';
+import nextServer from './utils/nextServer';
 import {getGoogleTagManager, getGoogleTagManagerNoScript} from './utils/getGoogleTagManager';
 
 export {
@@ -40,6 +41,7 @@ export {
   sanitize,
   setApiHeaders,
   setCookieLanguage,
+  nextServer,
   getGoogleTagManager,
   getGoogleTagManagerNoScript,
 };
