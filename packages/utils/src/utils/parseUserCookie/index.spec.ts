@@ -1,17 +1,17 @@
 import jwtDecode from 'jwt-decode';
 import {logger} from '@kununu/kununu-utils/dist/kununu-logger';
 
-import {
-  buildHTTPHeaders,
-  getParsedCookie,
-  isLoggedIn,
-} from '../..';
+import buildHTTPHeaders from '../buildHTTPHeaders';
+import getParsedCookie from '../getParsedCookie';
+import isLoggedIn from '../isLoggedIn';
 
 import parseUserCookie from '.';
 
 jest.mock('@kununu/kununu-utils/dist/kununu-logger');
 jest.mock('jwt-decode');
-jest.mock('../..');
+jest.mock('../buildHTTPHeaders');
+jest.mock('../getParsedCookie');
+jest.mock('../isLoggedIn');
 
 (jwtDecode as any).mockImplementation(() => ({
   custom: {

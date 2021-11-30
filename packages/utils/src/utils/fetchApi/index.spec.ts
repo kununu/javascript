@@ -1,7 +1,7 @@
 import fetchMock from 'fetch-mock';
 import * as kununuSessionCallback from '@kununu/kununu-utils/dist/kununu-helpers/kununuSession';
 
-import {fetchApiDomain, getBFFURL} from '../..';
+import fetchApiDomain, {getBFFURL} from '../fetchApiDomain';
 
 import fetchApi from '.';
 
