@@ -5,3 +5,8 @@ export type sanitizeOptions = {
   allowedTags?: string[],
   skipHtmlEntities?: boolean,
 };
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export type defaultSanitizeOptions = {
+  allowedTags?: string[],
+};
