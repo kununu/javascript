@@ -1,47 +1,48 @@
 import wrapUrlsInAnchorTag from '.';
 
-describe('statements', () => {
+fdescribe('statements', () => {
   describe('utils', () => {
     describe('wrapUrlsInAnchorTag', () => {
       it.each([
         {
-          expectedToContain: ['<a href="http://url.com" target="_blank" rel="noopener noreferrer">http://url.com</a>'],
+          expected: 'Some text <a href="http://url.com" target="_blank" rel="noopener noreferrer">http://url.com</a>',
           sentence: 'Some text http://url.com',
         },
         {
-          expectedToContain: ['<a href="https://google.com" target="_blank" rel="noopener noreferrer">https://google.com</a>'],
+          expected: '<a href="https://google.com" target="_blank" rel="noopener noreferrer">https://google.com</a> Text at the end',
           sentence: 'https://google.com Text at the end',
         },
         {
-          expectedToContain: ['<a href="https://link.at.the.middle" target="_blank" rel="noopener noreferrer">https://link.at.the.middle</a>'],
+          expected:
+          'Text at the beginning ' +
+          '<a href="https://link.at.the.middle" target="_blank" rel="noopener noreferrer">https://link.at.the.middle</a> ' +
+          'with more text at the end',
           sentence: 'Text at the beginning https://link.at.the.middle with more text at the end',
         },
         {
-          expectedToContain: [
-            '<a href="https://google.com" target="_blank" rel="noopener noreferrer">https://google.com</a>',
-            '<a href="http://url.com" target="_blank" rel="noopener noreferrer">http://url.com</a>',
-          ],
+          expected:
+          '<a href="https://google.com" target="_blank" rel="noopener noreferrer">https://google.com</a> ' +
+          '<a href="http://url.com" target="_blank" rel="noopener noreferrer">http://url.com</a> ' +
+          'Yo, now two urls',
           sentence: 'https://google.com http://url.com Yo, now two urls',
         },
         {
-          expectedToContain: [
-            '<a href="https://news.kununu.com/test/link-with-slash" target="_blank" rel="noopener noreferrer">https://news.kununu.com/test/link-with-slash</a>',
-          ],
+          expected:
+          '<a href="https://news.kununu.com/test/link-with-slash" target="_blank" rel="noopener noreferrer">' +
+          'https://news.kununu.com/test/link-with-slash</a> link with slash',
           sentence: 'https://news.kununu.com/test/link-with-slash link with slash',
         },
-      ])('add anchor tag correctly', ({expectedToContain, sentence}) => {
+      ])('add anchor tag correctly', ({expected, sentence}) => {
         const wrappedText = wrapUrlsInAnchorTag(sentence);
 
-        expectedToContain.forEach(expected => {
-          expect(wrappedText).toContain(expected);
-        });
+        expect(wrappedText).toBe(expected);
       });
 
       it('does not break if no match is found', () => {
         const sentence = 'Lorem Ipsum';
         const wrappedText = wrapUrlsInAnchorTag(sentence);
 
-        expect(wrappedText).toEqual(sentence);
+        expect(wrappedText).toBe(sentence);
       });
     });
   });

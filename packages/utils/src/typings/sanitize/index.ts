@@ -1,12 +1,9 @@
-// TODO: discuss this rule before release
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export type sanitizeOptions = {
+export type SanitizeOptions = {
   allowedAttributes?: {[key: string]: string[]},
   allowedTags?: string[],
   skipHtmlEntities?: boolean,
 };
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export type defaultSanitizeOptions = {
+export type DefaultSanitizeOptions = {
   allowedTags?: string[],
 };
