@@ -4,7 +4,8 @@ import qs from 'qs';
 import httpStatus from 'http-status-codes';
 import checkKununuSession from '@kununu/kununu-utils/dist/kununu-helpers/kununuSession';
 
-import {fetchApiDomain, getBFFURL, setApiHeaders} from '../..';
+import setApiHeaders from '../setApiHeaders';
+import fetchApiDomain, {getBFFURL} from '../fetchApiDomain';
 
 const HTTP_SUCCESS_CODES = [
   httpStatus.OK,

@@ -1,9 +1,13 @@
 import sanitizeHtml from 'sanitize-html';
 
 import {DEFAULT_ALLOWED_TAGS} from '../../constants/sanitize';
-import {sanitizeOptions} from '../../typings/sanitize';
+import {SanitizeOptions, DefaultSanitizeOptions} from '../../typings/sanitize';
 
-const sanitize = (html: string, options: sanitizeOptions): string => {
+const defaultOptions: DefaultSanitizeOptions = {
+  allowedTags: DEFAULT_ALLOWED_TAGS,
+};
+
+const sanitize = (html: string, options: SanitizeOptions = defaultOptions): string => {
   const {
     allowedAttributes = {},
     allowedTags = DEFAULT_ALLOWED_TAGS,

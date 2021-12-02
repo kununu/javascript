@@ -1,5 +1,7 @@
 import sanitizeHtml from 'sanitize-html';
 
+import {DEFAULT_ALLOWED_TAGS} from '../../constants/sanitize';
+
 import sanitize from '.';
 
 jest.mock('sanitize-html');
@@ -28,7 +30,7 @@ describe('sanitizeHtml', () => {
     );
 
     expect(mockSanitizeHtml).toHaveBeenCalledWith(
-      expect.any(String),
+      '<b>my label</b>',
       {
         allowedAttributes: {
           a: ['href'],
@@ -36,6 +38,19 @@ describe('sanitizeHtml', () => {
         },
         allowedTags: ['b', 'a'],
       },
+    );
+  });
+
+  it('should call sanitizeHtml with default allowed tags if no options are provided', () => {
+    sanitize(
+      '<b>my label</b>',
+    );
+
+    expect(mockSanitizeHtml).toHaveBeenCalledWith(
+      '<b>my label</b>',
+      expect.objectContaining({
+        allowedTags: DEFAULT_ALLOWED_TAGS,
+      }),
     );
   });
 

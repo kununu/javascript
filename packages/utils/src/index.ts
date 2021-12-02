@@ -19,6 +19,7 @@ import {
 } from './utils/countries';
 import sanitize from './utils/sanitize';
 import {getGoogleTagManager, getGoogleTagManagerNoScript} from './utils/getGoogleTagManager';
+import wrapUrlsInAnchorTag from './utils/wrapUrlsInAnchorTag';
 
 export {
   buildHTTPHeaders,
@@ -42,4 +43,5 @@ export {
   setCookieLanguage,
   getGoogleTagManager,
   getGoogleTagManagerNoScript,
+  wrapUrlsInAnchorTag,
 };
