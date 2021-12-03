@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const express = require('express');
-const next = require('next');
+import express from 'express';
+import next from 'next';
 
 const getMiddlewares = require('./middlewares');
 const isAliveHandler = require('./handlers/isAliveHandler');
@@ -46,4 +46,4 @@ const nextServer = (config: IConfig): INextServer => {
   return {app, server};
 };
 
-module.exports = nextServer;
+export default nextServer;

@@ -4,4 +4,4 @@ const isAliveHandler = (req: any, res: any): void => {
   res.json({build: process.env.BUILD_NAME || 'local development'});
 };
 
-module.exports = isAliveHandler;
+export default isAliveHandler;

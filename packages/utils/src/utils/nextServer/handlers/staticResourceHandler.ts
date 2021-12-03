@@ -3,4 +3,4 @@ const staticResourceHandler = (req: any, res: any, nextHandler: any): void => {
   nextHandler();
 };
 
-module.exports = staticResourceHandler;
+export default staticResourceHandler;
