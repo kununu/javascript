@@ -2,7 +2,7 @@
   "name": "@kununu/utils",
   "author": "kununu",
   "license": "ISC",
-  "version": "1.3.2-beta.9.3",
+  "version": "1.3.2-beta.9.4",
   "description": "Hosts react utils to be used cross application.",
   "main": "dist/index.js",
   "scripts": {
@@ -27,8 +27,8 @@
     "config": "3.3.6",
     "cookie-parser": "1.4.5",
     "helmet": "4.6.0",
-    "express": "4.x",
-    "next": "9.x"
+    "express": "4.17.1",
+    "next": "10.2.0"
   },
   "devDependencies": {
     "@babel/cli": "7.14.3",

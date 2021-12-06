@@ -2,9 +2,9 @@
 import express from 'express';
 import next from 'next';
 
-const getMiddlewares = require('./middlewares');
-const isAliveHandler = require('./handlers/isAliveHandler');
-const staticResourceHandler = require('./handlers/staticResourceHandler');
+import getMiddlewares from './middlewares';
+import isAliveHandler from './handlers/isAliveHandler';
+import staticResourceHandler from './handlers/staticResourceHandler';
 
 export interface INextServer {
   app: any,
