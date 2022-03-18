@@ -1,6 +1,6 @@
 {
   "name": "@kununu/next-server",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "helmet": "4.6.0"
   },
   "peerDependencies": {
-    "next": "9.x",
+    "next": "12.x",
     "express": "4.x"
   },
   "author": "",
